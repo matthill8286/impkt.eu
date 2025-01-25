@@ -1,0 +1,59 @@
+/* -------------------------------------------
+
+Name: 		Impkt
+Version:    1.0
+Developer:	Matthew Hill (info@impkt.eu)
+
+------------------------------------------- */
+/*--------------------------------------------
+
+1. common
+    - main
+    - typography
+    - link
+    - button
+    - form
+    - breadcrumbs
+    - backgrounds
+    - spaces
+2. components
+    - preloader
+    - cursor
+    - hidden elements
+    - scrollbar
+    - frame
+    - menu button
+    - menu 
+    - banner
+    - circle text
+    - lines
+    - dodecahedron
+    - about
+    - partners
+    - services
+    - team
+    - social icons
+    - revievs
+    - blog
+    - footer
+    - Projects
+    - map
+    - accordion
+    - price
+    - 404
+    - images
+    - page transitions
+
+
+--------------------------------------------*/
+
+@import 'scss/local-variables';
+@import 'scss/components';
+@import 'scss/common';
+
+// importing core styling file
+@import './fontawesome/scss/fontawesome.scss';
+
+// our project needs Solid + Brands
+@import './fontawesome/scss/solid.scss';
+@import './fontawesome/scss/brands.scss';
