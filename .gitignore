@@ -11,3 +11,8 @@ coverage/
 .vscode
 .idea
 .DS_Store
+
+.env.*
+.env
+
+src/__generated__

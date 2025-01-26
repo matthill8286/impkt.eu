@@ -404,7 +404,7 @@ const Home: React.FC = (): React.ReactElement => {
                   className="impkt-partner-frame"
                   style={{ width: '60px' }}
                 >
-                  <img src="/img/partners/orange.svg" alt="logo" />
+                  <img src="/img/icons/orange.svg" alt="logo" />
                 </a>
               </div>
               <div className="swiper-slide">
@@ -413,7 +413,7 @@ const Home: React.FC = (): React.ReactElement => {
                   className="impkt-partner-frame"
                   style={{ width: '100px' }}
                 >
-                  <img src="/img/partners/hsbc.svg" alt="logo" />
+                  <img src="/img/icons/hsbc.svg" alt="logo" />
                 </a>
               </div>
               <div className="swiper-slide">
@@ -422,7 +422,7 @@ const Home: React.FC = (): React.ReactElement => {
                   className="impkt-partner-frame"
                   style={{ width: '60px' }}
                 >
-                  <img src="/img/partners/ford.svg" alt="logo" />
+                  <img src="/img/icons/ford.svg" alt="logo" />
                 </a>
               </div>
               <div className="swiper-slide">
@@ -431,7 +431,7 @@ const Home: React.FC = (): React.ReactElement => {
                   className="impkt-partner-frame"
                   style={{ width: '100px' }}
                 >
-                  <img src="/img/partners/goldmansachs.svg" alt="logo" />
+                  <img src="/img/icons/goldmansachs.svg" alt="logo" />
                 </a>
               </div>
             </div>

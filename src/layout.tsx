@@ -1,5 +1,10 @@
 import AppLayout from '@/components/layout';
+import { useCallback } from 'react';
 
 export function Layout() {
-  return <AppLayout />;
+  const cacheLayout = useCallback(() => {
+    return <AppLayout />;
+  }, []);
+
+  return cacheLayout();
 }
