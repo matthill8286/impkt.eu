@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const serviceEntriesQuery = gql`
+export const serviceEntriesQuery = gql(/* GraphQL */ `
   query ServiceEntries {
     serviceEntries {
       id
@@ -19,9 +19,9 @@ export const serviceEntriesQuery = gql`
       }
     }
   }
-`;
+`);
 
-export const serviceEntryQuery = gql`
+export const serviceEntryQuery = gql(/* GraphQL */ `
   query ServiceEntry($id: ID!) {
     serviceEntry(where: { id: $id }) {
       id
@@ -40,4 +40,4 @@ export const serviceEntryQuery = gql`
       }
     }
   }
-`;
+`);

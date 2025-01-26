@@ -1,15 +1,21 @@
-import React, { Fragment, ReactElement } from 'react';
-import { Link } from 'react-router-dom';
+import React, { ReactElement } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { projectsQuery } from '@/queries/projects';
-import { Project } from '@/__generated__/graphql';
-import ProjectSwiperImages from '@/components/swiper-images/project-image-swiper';
+import { ProjectDocument } from '@/__generated__/graphql';
 import Breadcrumbs from '@/components/breadcrumbs';
+import CustomRichText from '@/components/custom-rich-text';
 
-const ProjectsV2: React.FC = (): ReactElement => {
-  const { loading, data, error } = useQuery(projectsQuery);
+const ProjectV2: React.FC = (): ReactElement => {
+  const params = useParams<{ id: string }>();
+  const { loading, data, error } = useQuery(ProjectDocument, {
+    variables: {
+      id: params.id!,
+    },
+    skip: !params.id,
+  });
 
-  console.log({ loading, data, error });
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className="impkt-content">
@@ -28,6 +34,7 @@ const ProjectsV2: React.FC = (): ReactElement => {
                 crumbs={[
                   { label: 'Homepage', to: '/' },
                   { label: 'Projects', to: '/projects' },
+                  { label: data?.project?.title ?? 'Project', to: '/' },
                 ]}
               />
               <h1 className="impkt-mb-60">
@@ -43,96 +50,65 @@ const ProjectsV2: React.FC = (): ReactElement => {
             </div>
           </div>
         </div>
-        <section id="project">
+        <section id="projects">
           <div className="container impkt-p-120-120">
             <div className="swiper-container impkt-1-slider impkt-up">
               <div className="swiper-wrapper">
                 <div className="swiper-slide">
                   <div className="impkt-image-frame impkt-horizontal impkt-drag">
-                    <img src="img/works/3/1.jpg" alt="image" />
+                    <img
+                      src={data?.project?.coverImage?.url}
+                      alt={data?.project?.coverImage?.altText ?? 'image'}
+                    />
                     <a
                       data-fancybox="gallery"
                       data-no-swup
-                      href="img/works/3/1.jpg"
+                      href={data?.project?.coverImage?.url}
                       className="impkt-zoom-btn"
                     >
-                      <img src="img/icons/zoom.svg" alt="zoom" />
+                      <img src="/img/icons/zoom.svg" alt="zoom" />
                     </a>
                   </div>
                 </div>
-                <div className="swiper-slide">
-                  <div className="impkt-image-frame impkt-horizontal impkt-drag">
-                    <img src="img/works/3/2.jpg" alt="image" />
-                    <a
-                      data-fancybox="gallery"
-                      data-no-swup
-                      href="img/works/3/2.jpg"
-                      className="impkt-zoom-btn"
-                    >
-                      <img src="img/icons/zoom.svg" alt="zoom" />
-                    </a>
+                {data?.project?.images.map((image) => (
+                  <div className="swiper-slide" key={image.handle}>
+                    <div className="impkt-image-frame impkt-horizontal impkt-drag">
+                      <img src={image.url} alt="image" />
+                      <a
+                        data-fancybox="gallery"
+                        data-no-swup
+                        href={image.url}
+                        className="impkt-zoom-btn"
+                      >
+                        <img src="/img/icons/zoom.svg" alt="zoom" />
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div className="swiper-slide">
-                  <div className="impkt-image-frame impkt-horizontal impkt-drag">
-                    <img src="img/works/3/3.jpg" alt="image" />
-                    <a
-                      data-fancybox="gallery"
-                      data-no-swup
-                      href="img/works/3/3.jpg"
-                      className="impkt-zoom-btn"
-                    >
-                      <img src="img/icons/zoom.svg" alt="zoom" />
-                    </a>
-                  </div>
-                </div>
-                <div className="swiper-slide">
-                  <div className="impkt-image-frame impkt-horizontal impkt-drag">
-                    <img src="img/works/3/4.jpg" alt="image" />
-                    <a
-                      data-fancybox="gallery"
-                      data-no-swup
-                      href="img/works/3/4.jpg"
-                      className="impkt-zoom-btn"
-                    >
-                      <img src="img/icons/zoom.svg" alt="zoom" />
-                    </a>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             <div className="impkt-info impkt-up">
               <div>
-                Client: &nbsp;<span className="impkt-dark">Envato Market</span>
+                Client: &nbsp;
+                <span className="impkt-dark">{data?.project?.title}</span>
               </div>
               <div>
-                Date: &nbsp;<span className="impkt-dark">August 2024</span>
+                Date: &nbsp;
+                <span className="impkt-dark">{data?.project?.date}</span>
               </div>
               <div>
-                Author: &nbsp;<span className="impkt-dark">Paul Trueman</span>
+                Author: &nbsp;
+                <span className="impkt-dark">
+                  {data?.project?.author?.name}
+                </span>
               </div>
             </div>
             <div className="row justify-content-between impkt-p-120-90">
               <div className="col-lg-5">
-                <h3 className="impkt-up impkt-mb-60">
-                  Simplicity, elegance, innovation!
-                </h3>
+                <h3 className="impkt-up impkt-mb-60">{data?.project?.title}</h3>
               </div>
               <div className="col-lg-6">
-                <p className="impkt-up impkt-mb-30">
-                  A home surveillance camera that pays great attention to
-                  security and user privacy, featuring two modes to provide
-                  security while protecting personal privacy.The camera has an
-                  open and closed mode, we define the product to have clear two
-                  sides, expressing two working states and emotions.
-                </p>
-
-                <p className="impkt-up impkt-mb-30">
-                  Presents a simple and quiet state when not in use, delivering
-                  a gentle and security.At the same time, the camera can adapt
-                  to a variety of environments, providing elegant ways of wall
-                  hanging and standing installation.
-                </p>
+                <CustomRichText content={data?.project?.content?.json} />
               </div>
             </div>
             <div className="impkt-works-nav impkt-up">
@@ -142,9 +118,9 @@ const ProjectsV2: React.FC = (): ReactElement => {
               >
                 <span>Prev project</span>
               </a>
-              <a href="works.html" className="impkt-link impkt-dark">
+              <Link to="/projects" className="impkt-link impkt-dark">
                 <span>All projects</span>
-              </a>
+              </Link>
               <a
                 href="project-4.html"
                 className="impkt-link impkt-dark impkt-arrow-place"
@@ -159,4 +135,4 @@ const ProjectsV2: React.FC = (): ReactElement => {
   );
 };
 
-export default ProjectsV2;
+export default ProjectV2;

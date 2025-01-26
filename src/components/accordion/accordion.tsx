@@ -18,19 +18,9 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
   };
 
   return (
-    <div
-      className={`accordion ${
-        isOpen ? 'accordion--open' : 'accordion--closed'
-      }`}
-      style={{
-        marginBottom: '16px',
-        border: '1px solid #ccc',
-        borderRadius: '8px',
-        overflow: 'hidden',
-      }}
-    >
+    <div className={`impkt-accordion-group impkt-up`}>
       <div
-        className="accordion-header"
+        className="accordion-header impkt-accordion-menu"
         onClick={toggleAccordion}
         onKeyDown={handleKeyDown}
         role="button"
@@ -38,60 +28,28 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
         aria-expanded={isOpen}
         aria-controls={`accordion-content-${title}`}
         aria-label={`Toggle ${title}`}
-        style={{
-          padding: '12px 16px',
-          cursor: 'pointer',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          backgroundColor: isOpen ? '#f0f0f0' : '#ffffff',
-          outline: 'none',
-          fontSize: '16px',
-          lineHeight: '24px',
-        }}
       >
-        <p
-          className="accordion-title"
-          style={{
-            margin: 0,
-            fontWeight: 'bold',
-          }}
-        >
-          {title}
-        </p>
-        <div
-          className="accordion-icon"
-          style={{
-            fontSize: '24px',
-          }}
-        >
-          {isOpen ? '−' : '+'}
+        <p className="accordion-title impkt-accordion-head">{title}</p>
+        <div className="impkt-symbol impkt-h3">
+          <div className={`${isOpen ? 'impkt-minus' : 'impkt-plus'}`}>
+            {isOpen ? '−' : '+'}
+          </div>
         </div>
       </div>
 
       <div
         id={`accordion-content-${title}`}
-        className="accordion-content"
+        className="impkt-accordion-content"
         role="region"
         aria-labelledby={`accordion-header-${title}`}
         style={{
-          maxHeight: isOpen ? '300px' : '0',
+          height: isOpen ? 'auto' : '0',
           overflow: 'hidden',
           transition: 'max-height 0.3s ease',
+          marginBottom: '20px',
         }}
       >
-        {isOpen && (
-          <div
-            style={{
-              padding: '12px 16px',
-              fontSize: '14px',
-              lineHeight: '20px',
-              backgroundColor: '#ffffff',
-            }}
-          >
-            {children}
-          </div>
-        )}
+        {children}
       </div>
     </div>
   );

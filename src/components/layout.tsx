@@ -24,7 +24,7 @@ const AppLayout: FC<LayoutProps> = (): ReactElement => {
               <div className="col-xl-5">
                 <nav className="impkt-main-menu" id="swupMenu">
                   <ul>
-                    <li className="impkt-has-children impkt-active">
+                    <li>
                       <Link to="/">Homepage</Link>
                     </li>
                     <li>

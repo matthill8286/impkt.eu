@@ -1,26 +1,22 @@
 import { Link } from 'react-router-dom';
+import { Project } from '@/__generated__/graphql';
+import CustomRichText from '@/components/custom-rich-text';
 
 export default function ProjectItem({
   project,
+  readMoreLabel,
 }: {
-  project: {
-    title: string;
-    description: string;
-    date: string;
-    category: string;
-    image: string;
-    href: string;
-    readMoreLabel?: string;
-  };
+  project: Project;
+  readMoreLabel: string;
 }) {
   return (
     <div className="col-lg-12">
       <Link
-        to={project.href}
+        to={project.id}
         className="impkt-blog-card impkt-blog-card-hori impkt-more impkt-mb-60"
       >
         <div className="impkt-cover-frame impkt-up">
-          <img src={project.image} alt="cover" />
+          <img src={project.coverImage?.url} alt="cover" />
         </div>
         <div className="impkt-post-descr">
           <div className="impkt-labels impkt-up impkt-mb-30">
@@ -28,13 +24,14 @@ export default function ProjectItem({
               {project.category}
             </div>
             <div className="impkt-label impkt-upper">{project.date}</div>
+            <div className="impkt-label impkt-upper">
+              {project.author?.name}
+            </div>
           </div>
           <h4 className="impkt-up impkt-mb-30">{project.title}</h4>
-          <p className="impkt-post-text impkt-up impkt-mb-30">
-            {project.description}
-          </p>
+          <CustomRichText content={project.content.json} />
           <div className="impkt-link impkt-dark impkt-arrow-place impkt-up">
-            <span>{project.readMoreLabel}</span>
+            <span>{readMoreLabel}</span>
           </div>
         </div>
       </Link>

@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import Accordion from '@/components/accordion/accordion';
 import { ServiceEntryDocument } from '@/__generated__/graphql';
+import CustomRichText from '@/components/custom-rich-text';
 
 const Service: React.FC = (): React.ReactElement => {
   const params = useParams();
@@ -86,7 +87,7 @@ const Service: React.FC = (): React.ReactElement => {
                 console.log({ service });
                 return (
                   <Accordion key={service.title} title={service.title}>
-                    <RichText content={service.description?.raw} />
+                    <CustomRichText content={service.description?.raw} />
                   </Accordion>
                 );
               })}

@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { projectsQuery } from '@/queries/projects';
+import { Project } from '@/__generated__/graphql';
+import MediaRenderer from '@/components/media-renderer';
 
 const Projects: React.FC = (): React.ReactElement => {
   const { loading, data, error } = useQuery(projectsQuery);
@@ -42,39 +44,48 @@ const Projects: React.FC = (): React.ReactElement => {
         </div>
       </div>
       <section id="projects">
-        <div className="container impkt-Projects impkt-p-120-60">
+        <div className="container impkt-works impkt-p-120-60">
           <div className="impkt-lines-place"></div>
           <div className="impkt-lines-place impkt-lines-long"></div>
-
           <div className="row justify-content-between align-items-end">
-            {data?.projects.map((project) => (
-              <div className="col-lg-12">
-                <Link
-                  to={`/project/${project.id}`}
-                  className="impkt-Projects-item impkt-more impkt-mb-60"
-                >
-                  <div className="impkt-cover-frame impkt-hori impkt-up">
-                    <div className="impkt-cover">
-                      <img src={project.cover.url} alt="cover" />
-                    </div>
-                  </div>
-                  <div className="impkt-descr">
-                    <div className="impkt-labels impkt-up impkt-mb-15">
-                      <div className="impkt-label impkt-upper impkt-accent">
-                        {project.category}
-                      </div>
-                      <div className="impkt-label impkt-upper">
-                        {project.date}
+            {data?.projects.map((project: Project) => {
+              console.log({ project });
+              return (
+                <div className="col-lg-12" key={project.id}>
+                  <Link
+                    to={`/projects/${project.id}`}
+                    className="impkt-works-item impkt-more impkt-mb-60"
+                  >
+                    <div className="impkt-cover-frame impkt-hori impkt-up">
+                      <div className="impkt-cover">
+                        <MediaRenderer
+                          mimeType={project.coverImage?.mimeType}
+                          url={project.coverImage?.url}
+                        />
                       </div>
                     </div>
-                    <h4 className="impkt-up">{project.title}</h4>
-                  </div>
-                </Link>
-              </div>
-            ))}
+                    <div className="impkt-descr">
+                      <div className="impkt-labels impkt-up impkt-mb-15">
+                        <div className="impkt-label impkt-upper impkt-accent">
+                          {project.category}
+                        </div>
+                        <div className="impkt-label impkt-upper">
+                          {project.date}
+                        </div>
+                        <div className="impkt-label impkt-upper">
+                          {project.author?.name}
+                        </div>
+                      </div>
+                      <h4 className="impkt-up">{project.title}</h4>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
+      {/* Bottom Banner */}
       <section className="impkt-soft-bg">
         <div className="container impkt-p-120-120">
           <div className="row">

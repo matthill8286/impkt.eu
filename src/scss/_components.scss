@@ -2028,7 +2028,7 @@ footer
 Projects
 
 ------------------------------------------- */
-.impkt-Projects-item {
+.impkt-works-item {
     display: block;
 
     & .impkt-cover-frame {
@@ -2117,14 +2117,14 @@ Projects
 
 
 .swiper-slide {
-    & .impkt-Projects-item {
+    & .impkt-works-item {
         & .impkt-descr {
             pointer-events: none;
         }
     }
 
     &.swiper-slide-active {
-        & .impkt-Projects-item {
+        & .impkt-works-item {
             & .impkt-descr {
                 pointer-events: all;
             }
@@ -2132,7 +2132,7 @@ Projects
     }
 }
 
-.impkt-Projects {
+.impkt-works {
     position: relative;
 
     & .impkt-lines-place {
@@ -2145,7 +2145,7 @@ Projects
     }
 }
 
-.impkt-Projects-slider-frame {
+.impkt-works-slider-frame {
     z-index: 0;
     padding-top: 150px;
 
@@ -2154,7 +2154,7 @@ Projects
     }
 }
 
-.impkt-Projects-nav {
+.impkt-works-nav {
     background-color: $gs-5;
     width: 100%;
     padding: 0 60px;
@@ -2165,7 +2165,7 @@ Projects
     align-items: center;
     justify-content: center;
 
-    & .impkt-Projects-btns-frame {
+    & .impkt-works-btns-frame {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2182,7 +2182,7 @@ Projects
         justify-content: flex-start;
         background-color: $light;
 
-        & .impkt-Projects-btns-frame {
+        & .impkt-works-btns-frame {
             width: 100%;
             height: auto;
             padding: 0;
@@ -2286,14 +2286,14 @@ accordion
 
 .impkt-accordion-group {
     border-bottom: solid 1px $dt-20;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 
     & .impkt-accordion-menu {
         display: flex;
         align-items: center;
         justify-content: space-between;
         cursor: pointer;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
 
         & .impkt-symbol {
             border-radius: 50%;
