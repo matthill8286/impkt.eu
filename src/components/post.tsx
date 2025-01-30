@@ -43,7 +43,7 @@ export const Post: FC<PostProps> = ({
           <p className="impkt-post-text impkt-up impkt-mb-30">
             <RichText content={content?.json} />
           </p>
-          <div className="impkt-link impkt-dark impkt-arrow-place impkt-up">
+          <div className="impkt-link impkt-dark  impkt-up">
             <span>Read more</span>
           </div>
         </div>

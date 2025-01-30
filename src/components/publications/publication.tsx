@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Asset, Maybe, PostContentRichText } from '@/__generated__/graphql';
-import CustomRichText from '@/components/custom-rich-text';
 
 export interface PublicationProps {
   to: string;
@@ -29,7 +28,7 @@ export default function Publication({
             <div className="impkt-label impkt-upper">{date}</div>
           </div>
           <h4 className="impkt-up impkt-mb-30">{title}</h4>
-          <div className="impkt-link impkt-dark impkt-arrow-place impkt-up">
+          <div className="impkt-link impkt-dark  impkt-up">
             <span>Read more</span>
           </div>
         </div>

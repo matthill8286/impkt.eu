@@ -3,8 +3,8 @@
 import { gql } from '@apollo/client';
 
 export const servicesQuery = gql(/* GraphQL */ `
-  query services {
-    services {
+  query serviceItems {
+    serviceItems {
       id
       title
       description {
@@ -16,8 +16,8 @@ export const servicesQuery = gql(/* GraphQL */ `
 `);
 
 export const serviceQuery = gql(/* GraphQL */ `
-  query service($id: ID!) {
-    service(where: { id: $id }) {
+  query serviceItem($id: ID!) {
+    serviceItem(where: { id: $id }) {
       description {
         text
       }

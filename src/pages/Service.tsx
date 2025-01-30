@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { RichText } from '@graphcms/rich-text-react-renderer';
 import Accordion from '@/components/accordion/accordion';
 import { ServiceEntryDocument } from '@/__generated__/graphql';
 import CustomRichText from '@/components/custom-rich-text';
@@ -50,7 +49,7 @@ const Service: React.FC = (): React.ReactElement => {
             </h1>
             <a
               href="#service"
-              className="impkt-link impkt-dark impkt-arrow-place impkt-down-arrow"
+              className="impkt-link impkt-dark  impkt-down-arrow"
             >
               <span>About service</span>
             </a>
@@ -73,10 +72,7 @@ const Service: React.FC = (): React.ReactElement => {
                 functionality, and search engine optimization.
               </p>
               <div className="impkt-up">
-                <Link
-                  to="/projects"
-                  className="impkt-link impkt-dark impkt-arrow-place"
-                >
+                <Link to="/projects" className="impkt-link impkt-dark ">
                   <span>View works</span>
                 </Link>
               </div>
@@ -137,7 +133,7 @@ const Service: React.FC = (): React.ReactElement => {
                 </div>
                 <div className="col-lg-2">
                   <div className="impkt-adaptive-right impkt-mb-30">
-                    <div className="impkt-button impkt-icon-button-sm impkt-arrow-place"></div>
+                    <div className="impkt-button impkt-icon-button-sm "></div>
                   </div>
                 </div>
               </div>
@@ -166,7 +162,7 @@ const Service: React.FC = (): React.ReactElement => {
                 </div>
                 <div className="col-lg-2">
                   <div className="impkt-adaptive-right impkt-mb-30">
-                    <div className="impkt-button impkt-icon-button-sm impkt-arrow-place"></div>
+                    <div className="impkt-button impkt-icon-button-sm "></div>
                   </div>
                 </div>
               </div>
@@ -195,7 +191,7 @@ const Service: React.FC = (): React.ReactElement => {
                 </div>
                 <div className="col-lg-2">
                   <div className="impkt-adaptive-right impkt-mb-30">
-                    <div className="impkt-button impkt-icon-button-sm impkt-arrow-place"></div>
+                    <div className="impkt-button impkt-icon-button-sm "></div>
                   </div>
                 </div>
               </div>
@@ -224,14 +220,14 @@ const Service: React.FC = (): React.ReactElement => {
                 </div>
                 <div className="col-lg-2">
                   <div className="impkt-adaptive-right impkt-mb-30">
-                    <div className="impkt-button impkt-icon-button-sm impkt-arrow-place"></div>
+                    <div className="impkt-button impkt-icon-button-sm "></div>
                   </div>
                 </div>
               </div>
             </Link>
 
             <div className="impkt-center">
-              <Link to="/contact" className="impkt-button  impkt-arrow-place">
+              <Link to="/contact" className="impkt-button  ">
                 <span>individual solution</span>
               </Link>
             </div>
@@ -246,10 +242,7 @@ const Service: React.FC = (): React.ReactElement => {
             </div>
             <div className="col-lg-6 impkt-mb-30">
               <div className="impkt-adaptive-right impkt-up">
-                <Link
-                  to="/services"
-                  className="impkt-link impkt-dark impkt-arrow-place"
-                >
+                <Link to="/services" className="impkt-link impkt-dark ">
                   <span>View all</span>
                 </Link>
               </div>
@@ -275,7 +268,7 @@ const Service: React.FC = (): React.ReactElement => {
                   <li className="impkt-up">Methodologies</li>
                   <li className="impkt-up">Wireframing</li>
                 </ul>
-                <div className="impkt-link impkt-dark impkt-arrow-place impkt-up">
+                <div className="impkt-link impkt-dark  impkt-up">
                   <span>Read more</span>
                 </div>
               </a>
@@ -299,7 +292,7 @@ const Service: React.FC = (): React.ReactElement => {
                   <li className="impkt-up">Methodologies</li>
                   <li className="impkt-up">Wireframing</li>
                 </ul>
-                <div className="impkt-link impkt-dark impkt-arrow-place impkt-up">
+                <div className="impkt-link impkt-dark  impkt-up">
                   <span>Read more</span>
                 </div>
               </a>
@@ -323,7 +316,7 @@ const Service: React.FC = (): React.ReactElement => {
                   <li className="impkt-up">Methodologies</li>
                   <li className="impkt-up">Wireframing</li>
                 </ul>
-                <div className="impkt-link impkt-dark impkt-arrow-place impkt-up">
+                <div className="impkt-link impkt-dark  impkt-up">
                   <span>Read more</span>
                 </div>
               </a>

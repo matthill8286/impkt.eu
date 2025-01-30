@@ -43,6 +43,11 @@ export default function CustomRichText({
                 {children}
               </strong>
             ),
+            blockquote: ({ children }) => (
+              <blockquote className={`impkt-thin impkt-mb-10 ${customClass}`}>
+                {children}
+              </blockquote>
+            ),
             p: ({ children }) => (
               <p className={`impkt-mb-10 ${customClass}`}>{children}</p>
             ),

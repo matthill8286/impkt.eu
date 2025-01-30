@@ -3,11 +3,12 @@ import { useQuery } from '@apollo/client';
 import { postsQuery } from '@/queries/post';
 import { Post } from '@/components/post';
 import { Link } from 'react-router-dom';
+import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs';
+import PostLoader from '@/components/loaders/post-loader';
 
 const Posts: React.FC = (): React.ReactElement => {
   const { loading, error, data } = useQuery(postsQuery);
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
@@ -22,22 +23,17 @@ const Posts: React.FC = (): React.ReactElement => {
             ></div>
           </div>
           <div className="container">
-            <ul className="impkt-breadcrumbs impkt-mb-60">
-              <li>
-                <Link to="/">Homepage</Link>
-              </li>
-              <li>
-                <Link to="/posts">Blog</Link>
-              </li>
-            </ul>
+            <Breadcrumbs
+              crumbs={[
+                { label: 'Homepage', to: '/' },
+                { label: 'Blog', to: '/posts' },
+              ]}
+            />
             <h1 className="impkt-mb-60">
               Exploring <span className="impkt-thin">the World</span> <br />{' '}
               Through Our <span className="impkt-thin">Blog</span>
             </h1>
-            <a
-              href="#blog"
-              className="impkt-link impkt-dark impkt-arrow-place impkt-down-arrow"
-            >
+            <a href="#blog" className="impkt-link impkt-dark  impkt-down-arrow">
               <span>Publications</span>
             </a>
           </div>
@@ -51,26 +47,24 @@ const Posts: React.FC = (): React.ReactElement => {
             </div>
             <div className="col-lg-6 impkt-mb-30">
               <div className="impkt-adaptive-right impkt-up">
-                <a
-                  href="blog-inner.html"
-                  className="impkt-link impkt-dark impkt-arrow-place"
-                >
+                <Link to="/posts" className="impkt-link impkt-dark ">
                   <span>View all</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
           <div className="row">
-            {loading && !data?.posts && <p>Loading...</p>}
             {data?.posts.map((post) => (
-              <Post
-                key={post.id}
-                id={post.id}
-                date={post.date}
-                author={post.author?.name}
-                title={post.title}
-                coverImage={post.coverImage as any}
-              />
+              <PostLoader loading={loading} key={post.id}>
+                <Post
+                  key={post.id}
+                  id={post.id}
+                  date={post.date}
+                  author={post.author?.name}
+                  title={post.title}
+                  coverImage={post.coverImage as any}
+                />
+              </PostLoader>
             ))}
           </div>
         </div>

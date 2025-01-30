@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import Breadcrumbs from '@/components/breadcrumbs';
 import { ProjectDocument } from '@/__generated__/graphql';
 import CustomRichText from '@/components/custom-rich-text';
 import MediaRenderer from '@/components/media-renderer';
+import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs';
 
 const Project: React.FC = (): React.ReactElement => {
   const params = useParams<{ id: string }>();
@@ -39,7 +39,7 @@ const Project: React.FC = (): React.ReactElement => {
               <h1 className="impkt-mb-60">{data?.project?.title}</h1>
               <a
                 href="#project"
-                className="impkt-link impkt-dark impkt-arrow-place impkt-down-arrow"
+                className="impkt-link impkt-dark  impkt-down-arrow"
               >
                 <span>Read more</span>
               </a>

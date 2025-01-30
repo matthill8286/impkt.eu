@@ -23,8 +23,8 @@ export default function Reviews() {
         <div className="row impkt-relative justify-content-center">
           <div className="col-lg-8">
             <div className="impkt-slider-nav impkt-soft impkt-reviews-nav impkt-up">
-              <div className="impkt-slider-arrow impkt-prev impkt-revi-prev impkt-arrow-place"></div>
-              <div className="impkt-slider-arrow impkt-revi-next impkt-arrow-place"></div>
+              <div className="impkt-slider-arrow impkt-prev impkt-revi-prev "></div>
+              <div className="impkt-slider-arrow impkt-revi-next "></div>
             </div>
 
             <svg

@@ -18,7 +18,7 @@ $(function () {
 
     ***************************/
   const options = {
-    containers: ['#swupMain', '#swupMenu'],
+    containers: ['#swupMain'],
     animateHistoryBrowsing: true,
     linkSelector: 'a:not([data-no-swup])',
     animationSelector: '[class="impkt-main-transition"]',
@@ -178,7 +178,6 @@ $(function () {
 
     ***************************/
   $(document).ready(function () {
-    $('.impkt-arrow').clone().appendTo('.impkt-arrow-place');
     $('.impkt-dodecahedron').clone().appendTo('.impkt-animation');
     $('.impkt-lines').clone().appendTo('.impkt-lines-place');
     $('.impkt-main-menu ul li.impkt-active > a')
@@ -720,9 +719,8 @@ $(function () {
         ***************************/
     $(document).ready(function () {
       $(
-        '.impkt-arrow-place .impkt-arrow, .impkt-animation .impkt-dodecahedron, .impkt-current-page a'
+        '.impkt-arrow, .impkt-animation .impkt-dodecahedron, .impkt-current-page a'
       ).remove();
-      $('.impkt-arrow').clone().appendTo('.impkt-arrow-place');
       $('.impkt-dodecahedron').clone().appendTo('.impkt-animation');
       $('.impkt-lines').clone().appendTo('.impkt-lines-place');
       $('.impkt-main-menu ul li.impkt-active > a')

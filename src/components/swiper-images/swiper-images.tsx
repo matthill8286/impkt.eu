@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ProjectSwiperImagesProps } from '@/components/swiper-images/interface';
+import { ProjectSwiperImagesProps } from '@/components/swiper-images/swiper-images.interface';
 
 export default function ProjectSwiperImages({
   projectDetails,
@@ -44,10 +44,7 @@ export default function ProjectSwiperImages({
                   data-swiper-parallax-y="120"
                   data-swiper-parallax-opacity="0"
                 >
-                  <Link
-                    to={project.id}
-                    className="impkt-button impkt-arrow-place"
-                  >
+                  <Link to={project.id} className="impkt-button">
                     <span>View Project</span>
                   </Link>
                 </div>

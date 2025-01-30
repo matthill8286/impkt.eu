@@ -1,13 +1,10 @@
 import { useQuery } from '@apollo/client';
 import { Post, PostsDocument } from '@/__generated__/graphql';
-import PublicationContainer from '@/components/publication-container';
-import React from 'react';
+import PublicationContainer from '@/components/publications/publication-container';
 
 export default function PublicationsRenderer() {
   const { data, loading, error } = useQuery(PostsDocument);
-  if (!data?.posts) return null;
 
-  if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
@@ -18,10 +15,7 @@ export default function PublicationsRenderer() {
         </div>
         <div className="col-lg-6 impkt-mb-30">
           <div className="impkt-adaptive-right impkt-up">
-            <a
-              href="blog.html"
-              className="impkt-link impkt-dark impkt-arrow-place"
-            >
+            <a href="blog.html" className="impkt-link impkt-dark ">
               <span>View all</span>
             </a>
           </div>
@@ -29,6 +23,8 @@ export default function PublicationsRenderer() {
       </div>
       <div className="row">
         <PublicationContainer
+          loading={loading}
+          className="col-lg-6"
           publications={data?.posts.slice(0, 2) as Post[]}
         />
       </div>

@@ -1,8 +1,10 @@
-import React, { Fragment } from 'react';
-import PublicationsRenderer from '@/components/publications-renderer';
+import PublicationsRenderer from '@/components/publications/publications-renderer';
 import Reviews from '@/components/reviews';
+import { Link } from 'react-router-dom';
+import CompactServiceGrid from '@/components/compact-service/compact-service-grid';
+import { FC, ReactElement } from 'react';
 
-const Home: React.FC = (): React.ReactElement => {
+const Home: FC = (): ReactElement => {
   return (
     <div className="impkt-content">
       <section className="impkt-banner impkt-dark-bg">
@@ -43,18 +45,40 @@ const Home: React.FC = (): React.ReactElement => {
                 </div>
               </div>
 
-              <a
-                href="/services"
-                className="impkt-button impkt-arrow-place impkt-btn-space"
-              >
+              <a href="/services" className="impkt-button impkt-btn-space">
                 <span>What we do</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                  />
+                </svg>
               </a>
 
-              <a
-                href="/projects"
-                className="impkt-link impkt-muted impkt-arrow-place"
-              >
+              <a href="/projects" className="impkt-link impkt-muted ">
                 <span>View works</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                  />
+                </svg>
               </a>
 
               <div className="impkt-circle-text">
@@ -87,7 +111,7 @@ const Home: React.FC = (): React.ReactElement => {
                 </svg>
                 <a
                   href="#about"
-                  className="impkt-button impkt-arrow-place impkt-icon-button impkt-arrow-down"
+                  className="impkt-button  impkt-icon-button impkt-arrow-down"
                 ></a>
               </div>
             </div>
@@ -141,7 +165,7 @@ const Home: React.FC = (): React.ReactElement => {
                   style={{ paddingBottom: '160%' }}
                 >
                   <img
-                    src="/img/photo/office-space.jpg"
+                    src="/img/office-space.jpeg"
                     alt="img"
                     className="impkt-scale"
                     data-value-1="1"
@@ -183,7 +207,7 @@ const Home: React.FC = (): React.ReactElement => {
 
               <div className="impkt-complex-text justify-content-center impkt-up impkt-mb-15">
                 <span className="impkt-text-image">
-                  <img src="/img/photo/thinking.jpg" alt="team" />
+                  <img src="/img/office-space.jpeg" alt="team" />
                 </span>
                 <h2 className="impkt-h1 impkt-muted impkt-center">
                   Unique <span className="impkt-thin">Ideas</span>
@@ -193,69 +217,15 @@ const Home: React.FC = (): React.ReactElement => {
                 <h2 className="impkt-h1 impkt-muted impkt-center">
                   For Your <span className="impkt-thin">Business.</span>
                 </h2>
-                <a
-                  href="/services"
+                <Link
+                  to="/services"
                   className="impkt-services-button impkt-button impkt-arrow-place"
                 >
                   <span>What we do</span>
-                </a>
+                </Link>
               </div>
             </div>
-
-            <div className="row impkt-services-grid m-0">
-              <div className="col-md-6 col-lg-3 impkt-services-grid-item p-0">
-                <a href="/service" className="impkt-service-card-sm impkt-up">
-                  <h5 className="impkt-muted impkt-mb-30">
-                    Branding and <br />
-                    Identity Design
-                  </h5>
-                  <p className="impkt-light-soft impkt-mb-30">
-                    Our creative agency is a team of professionals focused on
-                    helping your brand grow.
-                  </p>
-                  <div className="impkt-button impkt-icon-button-sm impkt-arrow-place"></div>
-                </a>
-              </div>
-              <div className="col-md-6 col-lg-3 impkt-services-grid-item p-0">
-                <a href="/service" className="impkt-service-card-sm impkt-up">
-                  <h5 className="impkt-muted impkt-mb-30">
-                    Website Design <br />
-                    and Development
-                  </h5>
-                  <p className="impkt-light-soft impkt-mb-30">
-                    Our creative agency is a team of professionals focused on
-                    helping your brand grow.
-                  </p>
-                  <div className="impkt-button impkt-icon-button-sm impkt-arrow-place"></div>
-                </a>
-              </div>
-              <div className="col-md-6 col-lg-3 impkt-services-grid-item p-0">
-                <a href="/service" className="impkt-service-card-sm impkt-up">
-                  <h5 className="impkt-muted impkt-mb-30">
-                    Advertising and <br />
-                    Marketing Campaigns
-                  </h5>
-                  <p className="impkt-light-soft impkt-mb-30">
-                    Our creative agency is a team of professionals focused on
-                    helping your brand grow.
-                  </p>
-                  <div className="impkt-button impkt-icon-button-sm impkt-arrow-place"></div>
-                </a>
-              </div>
-              <div className="col-md-6 col-lg-3 impkt-services-grid-item p-0">
-                <a href="/service" className="impkt-service-card-sm impkt-up">
-                  <h5 className="impkt-muted impkt-mb-30">
-                    Creative Consulting <br />
-                    and Development
-                  </h5>
-                  <p className="impkt-light-soft impkt-mb-30">
-                    Our creative agency is a team of professionals focused on
-                    helping your brand grow.
-                  </p>
-                  <div className="impkt-button impkt-icon-button-sm impkt-arrow-place"></div>
-                </a>
-              </div>
-            </div>
+            <CompactServiceGrid />
           </div>
         </div>
       </section>
@@ -282,12 +252,9 @@ const Home: React.FC = (): React.ReactElement => {
                 </p>
 
                 <div className="impkt-up">
-                  <a
-                    href="/team"
-                    className="impkt-button impkt-arrow-place impkt-mb-60"
-                  >
+                  <Link to="/team" className="impkt-button  impkt-mb-60">
                     <span>Read more</span>
-                  </a>
+                  </Link>
                 </div>
 
                 <h4 className="impkt-up">
@@ -318,7 +285,7 @@ const Home: React.FC = (): React.ReactElement => {
                       <div className="impkt-description">
                         <div className="impkt-secrc-text">
                           <h5 className="impkt-muted impkt-mb-5">
-                            <a href="/team">Matthew Hill</a>
+                            <Link to="/team">Matthew Hill</Link>
                           </h5>
                           <p className="impkt-link impkt-light-soft impkt-mb-10">
                             CTO
@@ -354,7 +321,7 @@ const Home: React.FC = (): React.ReactElement => {
                       <div className="impkt-description">
                         <div className="impkt-secrc-text">
                           <h5 className="impkt-muted impkt-mb-5">
-                            <a href="/team">Yaroslava Dzihim</a>
+                            <Link to="/team">Yaroslava Dzihim</Link>
                           </h5>
                           <p className="impkt-link impkt-light-soft impkt-mb-10">
                             Head of Design

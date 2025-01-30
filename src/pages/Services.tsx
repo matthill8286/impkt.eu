@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { ServiceComponent } from '@/components/service';
-import { serviceEntriesQuery } from '@/queries/service-entry';
+import { serviceEntriesQuery } from '@/queries/service-entries';
 import { ServiceEntry } from '@/__generated__/graphql';
+import ServiceRenderer from '@/components/service/service-renderer';
 
 const Services: React.FC = (): React.ReactElement => {
   const { loading, error, data } = useQuery(serviceEntriesQuery);
@@ -41,7 +41,7 @@ const Services: React.FC = (): React.ReactElement => {
                 </h1>
                 <a
                   href="#services"
-                  className="impkt-link impkt-accent impkt-arrow-place impkt-down-arrow"
+                  className="impkt-link impkt-accent  impkt-down-arrow"
                 >
                   <span>Our services</span>
                 </a>
@@ -49,29 +49,7 @@ const Services: React.FC = (): React.ReactElement => {
             </div>
           </div>
         </div>
-        <section id="services">
-          <div className="mi-invert-fix">
-            <div className="container impkt-p-120-60">
-              <div className="row">
-                <div className="col-lg-5">
-                  <div className="impkt-lines-place impkt-light"></div>
-                </div>
-                <div className="col-lg-7">
-                  <div className="row">
-                    {data?.serviceEntries.map((service: ServiceEntry) => (
-                      <ServiceComponent
-                        id={service.id}
-                        key={service.id}
-                        title={service.title}
-                        description={service.description}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ServiceRenderer />
       </div>
       <section className="impkt-soft-bg">
         <div className="container impkt-p-120-120">
@@ -90,8 +68,22 @@ const Services: React.FC = (): React.ReactElement => {
               <span className="impkt-thin">when you are</span>
             </h2>
             <div className="impkt-up">
-              <Link to="/contact" className="impkt-button impkt-arrow-place">
+              <Link to="/contact" className="impkt-button">
                 <span>Contact us</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+                  />
+                </svg>
               </Link>
             </div>
           </div>

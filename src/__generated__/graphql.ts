@@ -29,6 +29,334 @@ export type Scalars = {
   RichTextAST: { input: any; output: any; }
 };
 
+export type AccordionComponent = Entity & {
+  __typename?: 'AccordionComponent';
+  description: RichText;
+  heading: Scalars['String']['output'];
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  /** System stage field */
+  stage: Stage;
+};
+
+export type AccordionComponentConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: AccordionComponentWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type AccordionComponentConnection = {
+  __typename?: 'AccordionComponentConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<AccordionComponentEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type AccordionComponentCreateInput = {
+  description: Scalars['RichTextAST']['input'];
+  heading: Scalars['String']['input'];
+};
+
+export type AccordionComponentCreateManyInlineInput = {
+  /** Create and connect multiple existing AccordionComponent documents */
+  create?: InputMaybe<Array<AccordionComponentCreateInput>>;
+};
+
+export type AccordionComponentCreateOneInlineInput = {
+  /** Create and connect one AccordionComponent document */
+  create?: InputMaybe<AccordionComponentCreateInput>;
+};
+
+export type AccordionComponentCreateWithPositionInput = {
+  /** Document to create */
+  data: AccordionComponentCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+export type AccordionComponentEdge = {
+  __typename?: 'AccordionComponentEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: AccordionComponent;
+};
+
+/** Identifies documents */
+export type AccordionComponentManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<AccordionComponentWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<AccordionComponentWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<AccordionComponentWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  heading?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  heading_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  heading_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  heading_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  heading_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  heading_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  heading_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  heading_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  heading_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  heading_starts_with?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export enum AccordionComponentOrderByInput {
+  HeadingAsc = 'heading_ASC',
+  HeadingDesc = 'heading_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC'
+}
+
+export type AccordionComponentParent = Page;
+
+export type AccordionComponentParentConnectInput = {
+  Page?: InputMaybe<PageConnectInput>;
+};
+
+export type AccordionComponentParentCreateInput = {
+  Page?: InputMaybe<PageCreateInput>;
+};
+
+export type AccordionComponentParentCreateManyInlineInput = {
+  /** Connect multiple existing AccordionComponentParent documents */
+  connect?: InputMaybe<Array<AccordionComponentParentWhereUniqueInput>>;
+  /** Create and connect multiple existing AccordionComponentParent documents */
+  create?: InputMaybe<Array<AccordionComponentParentCreateInput>>;
+};
+
+export type AccordionComponentParentCreateOneInlineInput = {
+  /** Connect one existing AccordionComponentParent document */
+  connect?: InputMaybe<AccordionComponentParentWhereUniqueInput>;
+  /** Create and connect one AccordionComponentParent document */
+  create?: InputMaybe<AccordionComponentParentCreateInput>;
+};
+
+export type AccordionComponentParentUpdateInput = {
+  Page?: InputMaybe<PageUpdateInput>;
+};
+
+export type AccordionComponentParentUpdateManyInlineInput = {
+  /** Connect multiple existing AccordionComponentParent documents */
+  connect?: InputMaybe<Array<AccordionComponentParentConnectInput>>;
+  /** Create and connect multiple AccordionComponentParent documents */
+  create?: InputMaybe<Array<AccordionComponentParentCreateInput>>;
+  /** Delete multiple AccordionComponentParent documents */
+  delete?: InputMaybe<Array<AccordionComponentParentWhereUniqueInput>>;
+  /** Disconnect multiple AccordionComponentParent documents */
+  disconnect?: InputMaybe<Array<AccordionComponentParentWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing AccordionComponentParent documents */
+  set?: InputMaybe<Array<AccordionComponentParentWhereUniqueInput>>;
+  /** Update multiple AccordionComponentParent documents */
+  update?: InputMaybe<Array<AccordionComponentParentUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple AccordionComponentParent documents */
+  upsert?: InputMaybe<Array<AccordionComponentParentUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type AccordionComponentParentUpdateManyWithNestedWhereInput = {
+  Page?: InputMaybe<PageUpdateManyWithNestedWhereInput>;
+};
+
+export type AccordionComponentParentUpdateOneInlineInput = {
+  /** Connect existing AccordionComponentParent document */
+  connect?: InputMaybe<AccordionComponentParentWhereUniqueInput>;
+  /** Create and connect one AccordionComponentParent document */
+  create?: InputMaybe<AccordionComponentParentCreateInput>;
+  /** Delete currently connected AccordionComponentParent document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Disconnect currently connected AccordionComponentParent document */
+  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single AccordionComponentParent document */
+  update?: InputMaybe<AccordionComponentParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single AccordionComponentParent document */
+  upsert?: InputMaybe<AccordionComponentParentUpsertWithNestedWhereUniqueInput>;
+};
+
+export type AccordionComponentParentUpdateWithNestedWhereUniqueInput = {
+  Page?: InputMaybe<PageUpdateWithNestedWhereUniqueInput>;
+};
+
+export type AccordionComponentParentUpsertWithNestedWhereUniqueInput = {
+  Page?: InputMaybe<PageUpsertWithNestedWhereUniqueInput>;
+};
+
+export type AccordionComponentParentWhereInput = {
+  Page?: InputMaybe<PageWhereInput>;
+};
+
+export type AccordionComponentParentWhereUniqueInput = {
+  Page?: InputMaybe<PageWhereUniqueInput>;
+};
+
+export type AccordionComponentUpdateInput = {
+  description?: InputMaybe<Scalars['RichTextAST']['input']>;
+  heading?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AccordionComponentUpdateManyInlineInput = {
+  /** Create and connect multiple AccordionComponent component instances */
+  create?: InputMaybe<Array<AccordionComponentCreateWithPositionInput>>;
+  /** Delete multiple AccordionComponent documents */
+  delete?: InputMaybe<Array<AccordionComponentWhereUniqueInput>>;
+  /** Update multiple AccordionComponent component instances */
+  update?: InputMaybe<Array<AccordionComponentUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple AccordionComponent component instances */
+  upsert?: InputMaybe<Array<AccordionComponentUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+export type AccordionComponentUpdateManyInput = {
+  description?: InputMaybe<Scalars['RichTextAST']['input']>;
+  heading?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AccordionComponentUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: AccordionComponentUpdateManyInput;
+  /** Document search */
+  where: AccordionComponentWhereInput;
+};
+
+export type AccordionComponentUpdateOneInlineInput = {
+  /** Create and connect one AccordionComponent document */
+  create?: InputMaybe<AccordionComponentCreateInput>;
+  /** Delete currently connected AccordionComponent document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single AccordionComponent document */
+  update?: InputMaybe<AccordionComponentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single AccordionComponent document */
+  upsert?: InputMaybe<AccordionComponentUpsertWithNestedWhereUniqueInput>;
+};
+
+export type AccordionComponentUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  data?: InputMaybe<AccordionComponentUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: AccordionComponentWhereUniqueInput;
+};
+
+export type AccordionComponentUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: AccordionComponentUpdateInput;
+  /** Unique document search */
+  where: AccordionComponentWhereUniqueInput;
+};
+
+export type AccordionComponentUpsertInput = {
+  /** Create document if it didn't exist */
+  create: AccordionComponentCreateInput;
+  /** Update document if it exists */
+  update: AccordionComponentUpdateInput;
+};
+
+export type AccordionComponentUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  data?: InputMaybe<AccordionComponentUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: AccordionComponentWhereUniqueInput;
+};
+
+export type AccordionComponentUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: AccordionComponentUpsertInput;
+  /** Unique document search */
+  where: AccordionComponentWhereUniqueInput;
+};
+
+/** Identifies documents */
+export type AccordionComponentWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<AccordionComponentWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<AccordionComponentWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<AccordionComponentWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  heading?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  heading_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  heading_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  heading_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  heading_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  heading_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  heading_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  heading_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  heading_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  heading_starts_with?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+};
+
+/** References AccordionComponent record uniquely */
+export type AccordionComponentWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type Aggregate = {
   __typename?: 'Aggregate';
   count: Scalars['Int']['output'];
@@ -1506,6 +1834,386 @@ export type AuthorWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
 
+/** Banner to highlight some promotional or important content */
+export type BannerComponent = Entity & {
+  __typename?: 'BannerComponent';
+  /** Label for your button */
+  buttonLabel?: Maybe<Scalars['String']['output']>;
+  /** Link for where you want the button to navigate */
+  buttonLink: Scalars['String']['output'];
+  description: RichText;
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  /** System stage field */
+  stage: Stage;
+  /** The title you want as your main heading for your banner */
+  title?: Maybe<RichText>;
+};
+
+export type BannerComponentConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: BannerComponentWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type BannerComponentConnection = {
+  __typename?: 'BannerComponentConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<BannerComponentEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type BannerComponentCreateInput = {
+  buttonLabel?: InputMaybe<Scalars['String']['input']>;
+  buttonLink: Scalars['String']['input'];
+  description: Scalars['RichTextAST']['input'];
+  title?: InputMaybe<Scalars['RichTextAST']['input']>;
+};
+
+export type BannerComponentCreateManyInlineInput = {
+  /** Create and connect multiple existing BannerComponent documents */
+  create?: InputMaybe<Array<BannerComponentCreateInput>>;
+};
+
+export type BannerComponentCreateOneInlineInput = {
+  /** Create and connect one BannerComponent document */
+  create?: InputMaybe<BannerComponentCreateInput>;
+};
+
+export type BannerComponentCreateWithPositionInput = {
+  /** Document to create */
+  data: BannerComponentCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+export type BannerComponentEdge = {
+  __typename?: 'BannerComponentEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: BannerComponent;
+};
+
+/** Identifies documents */
+export type BannerComponentManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<BannerComponentWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<BannerComponentWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<BannerComponentWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  buttonLabel?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  buttonLabel_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  buttonLabel_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  buttonLabel_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  buttonLabel_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  buttonLabel_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  buttonLabel_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  buttonLabel_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  buttonLabel_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  buttonLabel_starts_with?: InputMaybe<Scalars['String']['input']>;
+  buttonLink?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  buttonLink_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  buttonLink_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  buttonLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  buttonLink_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  buttonLink_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  buttonLink_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  buttonLink_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  buttonLink_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  buttonLink_starts_with?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export enum BannerComponentOrderByInput {
+  ButtonLabelAsc = 'buttonLabel_ASC',
+  ButtonLabelDesc = 'buttonLabel_DESC',
+  ButtonLinkAsc = 'buttonLink_ASC',
+  ButtonLinkDesc = 'buttonLink_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC'
+}
+
+export type BannerComponentParent = Page;
+
+export type BannerComponentParentConnectInput = {
+  Page?: InputMaybe<PageConnectInput>;
+};
+
+export type BannerComponentParentCreateInput = {
+  Page?: InputMaybe<PageCreateInput>;
+};
+
+export type BannerComponentParentCreateManyInlineInput = {
+  /** Connect multiple existing BannerComponentParent documents */
+  connect?: InputMaybe<Array<BannerComponentParentWhereUniqueInput>>;
+  /** Create and connect multiple existing BannerComponentParent documents */
+  create?: InputMaybe<Array<BannerComponentParentCreateInput>>;
+};
+
+export type BannerComponentParentCreateOneInlineInput = {
+  /** Connect one existing BannerComponentParent document */
+  connect?: InputMaybe<BannerComponentParentWhereUniqueInput>;
+  /** Create and connect one BannerComponentParent document */
+  create?: InputMaybe<BannerComponentParentCreateInput>;
+};
+
+export type BannerComponentParentUpdateInput = {
+  Page?: InputMaybe<PageUpdateInput>;
+};
+
+export type BannerComponentParentUpdateManyInlineInput = {
+  /** Connect multiple existing BannerComponentParent documents */
+  connect?: InputMaybe<Array<BannerComponentParentConnectInput>>;
+  /** Create and connect multiple BannerComponentParent documents */
+  create?: InputMaybe<Array<BannerComponentParentCreateInput>>;
+  /** Delete multiple BannerComponentParent documents */
+  delete?: InputMaybe<Array<BannerComponentParentWhereUniqueInput>>;
+  /** Disconnect multiple BannerComponentParent documents */
+  disconnect?: InputMaybe<Array<BannerComponentParentWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing BannerComponentParent documents */
+  set?: InputMaybe<Array<BannerComponentParentWhereUniqueInput>>;
+  /** Update multiple BannerComponentParent documents */
+  update?: InputMaybe<Array<BannerComponentParentUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple BannerComponentParent documents */
+  upsert?: InputMaybe<Array<BannerComponentParentUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type BannerComponentParentUpdateManyWithNestedWhereInput = {
+  Page?: InputMaybe<PageUpdateManyWithNestedWhereInput>;
+};
+
+export type BannerComponentParentUpdateOneInlineInput = {
+  /** Connect existing BannerComponentParent document */
+  connect?: InputMaybe<BannerComponentParentWhereUniqueInput>;
+  /** Create and connect one BannerComponentParent document */
+  create?: InputMaybe<BannerComponentParentCreateInput>;
+  /** Delete currently connected BannerComponentParent document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Disconnect currently connected BannerComponentParent document */
+  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single BannerComponentParent document */
+  update?: InputMaybe<BannerComponentParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single BannerComponentParent document */
+  upsert?: InputMaybe<BannerComponentParentUpsertWithNestedWhereUniqueInput>;
+};
+
+export type BannerComponentParentUpdateWithNestedWhereUniqueInput = {
+  Page?: InputMaybe<PageUpdateWithNestedWhereUniqueInput>;
+};
+
+export type BannerComponentParentUpsertWithNestedWhereUniqueInput = {
+  Page?: InputMaybe<PageUpsertWithNestedWhereUniqueInput>;
+};
+
+export type BannerComponentParentWhereInput = {
+  Page?: InputMaybe<PageWhereInput>;
+};
+
+export type BannerComponentParentWhereUniqueInput = {
+  Page?: InputMaybe<PageWhereUniqueInput>;
+};
+
+export type BannerComponentUpdateInput = {
+  buttonLabel?: InputMaybe<Scalars['String']['input']>;
+  buttonLink?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['RichTextAST']['input']>;
+  title?: InputMaybe<Scalars['RichTextAST']['input']>;
+};
+
+export type BannerComponentUpdateManyInlineInput = {
+  /** Create and connect multiple BannerComponent component instances */
+  create?: InputMaybe<Array<BannerComponentCreateWithPositionInput>>;
+  /** Delete multiple BannerComponent documents */
+  delete?: InputMaybe<Array<BannerComponentWhereUniqueInput>>;
+  /** Update multiple BannerComponent component instances */
+  update?: InputMaybe<Array<BannerComponentUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple BannerComponent component instances */
+  upsert?: InputMaybe<Array<BannerComponentUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+export type BannerComponentUpdateManyInput = {
+  buttonLabel?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['RichTextAST']['input']>;
+  title?: InputMaybe<Scalars['RichTextAST']['input']>;
+};
+
+export type BannerComponentUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: BannerComponentUpdateManyInput;
+  /** Document search */
+  where: BannerComponentWhereInput;
+};
+
+export type BannerComponentUpdateOneInlineInput = {
+  /** Create and connect one BannerComponent document */
+  create?: InputMaybe<BannerComponentCreateInput>;
+  /** Delete currently connected BannerComponent document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single BannerComponent document */
+  update?: InputMaybe<BannerComponentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single BannerComponent document */
+  upsert?: InputMaybe<BannerComponentUpsertWithNestedWhereUniqueInput>;
+};
+
+export type BannerComponentUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  data?: InputMaybe<BannerComponentUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: BannerComponentWhereUniqueInput;
+};
+
+export type BannerComponentUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: BannerComponentUpdateInput;
+  /** Unique document search */
+  where: BannerComponentWhereUniqueInput;
+};
+
+export type BannerComponentUpsertInput = {
+  /** Create document if it didn't exist */
+  create: BannerComponentCreateInput;
+  /** Update document if it exists */
+  update: BannerComponentUpdateInput;
+};
+
+export type BannerComponentUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  data?: InputMaybe<BannerComponentUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: BannerComponentWhereUniqueInput;
+};
+
+export type BannerComponentUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: BannerComponentUpsertInput;
+  /** Unique document search */
+  where: BannerComponentWhereUniqueInput;
+};
+
+/** Identifies documents */
+export type BannerComponentWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<BannerComponentWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<BannerComponentWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<BannerComponentWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  buttonLabel?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  buttonLabel_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  buttonLabel_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  buttonLabel_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  buttonLabel_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  buttonLabel_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  buttonLabel_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  buttonLabel_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  buttonLabel_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  buttonLabel_starts_with?: InputMaybe<Scalars['String']['input']>;
+  buttonLink?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  buttonLink_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  buttonLink_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  buttonLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  buttonLink_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  buttonLink_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  buttonLink_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  buttonLink_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  buttonLink_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  buttonLink_starts_with?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+};
+
+/** References BannerComponent record uniquely */
+export type BannerComponentWhereUniqueInput = {
+  buttonLink?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type BatchPayload = {
   __typename?: 'BatchPayload';
   /** The number of nodes that have been affected by the Batch operation. */
@@ -1594,9 +2302,12 @@ export type Entity = {
 
 /** This enumeration holds all typenames that implement the Entity interface. Components and models implement the Entity interface. */
 export enum EntityTypeName {
+  AccordionComponent = 'AccordionComponent',
   /** Asset system model */
   Asset = 'Asset',
   Author = 'Author',
+  /** Banner to highlight some promotional or important content */
+  BannerComponent = 'BannerComponent',
   Link = 'Link',
   Navigation = 'Navigation',
   Page = 'Page',
@@ -1608,11 +2319,11 @@ export enum EntityTypeName {
   /** Scheduled Release system model */
   ScheduledRelease = 'ScheduledRelease',
   SeoOverride = 'SeoOverride',
-  /** Services which we offer to our clients  */
-  Service = 'Service',
   /** Services component that will render a list of services */
-  ServiceComponent = 'ServiceComponent',
+  Service = 'Service',
   ServiceEntry = 'ServiceEntry',
+  /** Services which we offer to our clients  */
+  ServiceItem = 'ServiceItem',
   /** User system model */
   User = 'User'
 }
@@ -1863,14 +2574,14 @@ export enum LinkOrderByInput {
   IdDesc = 'id_DESC'
 }
 
-export type LinkPage = Author | Page | Post | Project | Service;
+export type LinkPage = Author | Page | Post | Project | ServiceItem;
 
 export type LinkPageConnectInput = {
   Author?: InputMaybe<AuthorConnectInput>;
   Page?: InputMaybe<PageConnectInput>;
   Post?: InputMaybe<PostConnectInput>;
   Project?: InputMaybe<ProjectConnectInput>;
-  Service?: InputMaybe<ServiceConnectInput>;
+  ServiceItem?: InputMaybe<ServiceItemConnectInput>;
 };
 
 export type LinkPageCreateInput = {
@@ -1878,7 +2589,7 @@ export type LinkPageCreateInput = {
   Page?: InputMaybe<PageCreateInput>;
   Post?: InputMaybe<PostCreateInput>;
   Project?: InputMaybe<ProjectCreateInput>;
-  Service?: InputMaybe<ServiceCreateInput>;
+  ServiceItem?: InputMaybe<ServiceItemCreateInput>;
 };
 
 export type LinkPageCreateManyInlineInput = {
@@ -1900,7 +2611,7 @@ export type LinkPageUpdateInput = {
   Page?: InputMaybe<PageUpdateInput>;
   Post?: InputMaybe<PostUpdateInput>;
   Project?: InputMaybe<ProjectUpdateInput>;
-  Service?: InputMaybe<ServiceUpdateInput>;
+  ServiceItem?: InputMaybe<ServiceItemUpdateInput>;
 };
 
 export type LinkPageUpdateManyInlineInput = {
@@ -1925,7 +2636,7 @@ export type LinkPageUpdateManyWithNestedWhereInput = {
   Page?: InputMaybe<PageUpdateManyWithNestedWhereInput>;
   Post?: InputMaybe<PostUpdateManyWithNestedWhereInput>;
   Project?: InputMaybe<ProjectUpdateManyWithNestedWhereInput>;
-  Service?: InputMaybe<ServiceUpdateManyWithNestedWhereInput>;
+  ServiceItem?: InputMaybe<ServiceItemUpdateManyWithNestedWhereInput>;
 };
 
 export type LinkPageUpdateOneInlineInput = {
@@ -1948,7 +2659,7 @@ export type LinkPageUpdateWithNestedWhereUniqueInput = {
   Page?: InputMaybe<PageUpdateWithNestedWhereUniqueInput>;
   Post?: InputMaybe<PostUpdateWithNestedWhereUniqueInput>;
   Project?: InputMaybe<ProjectUpdateWithNestedWhereUniqueInput>;
-  Service?: InputMaybe<ServiceUpdateWithNestedWhereUniqueInput>;
+  ServiceItem?: InputMaybe<ServiceItemUpdateWithNestedWhereUniqueInput>;
 };
 
 export type LinkPageUpsertWithNestedWhereUniqueInput = {
@@ -1956,7 +2667,7 @@ export type LinkPageUpsertWithNestedWhereUniqueInput = {
   Page?: InputMaybe<PageUpsertWithNestedWhereUniqueInput>;
   Post?: InputMaybe<PostUpsertWithNestedWhereUniqueInput>;
   Project?: InputMaybe<ProjectUpsertWithNestedWhereUniqueInput>;
-  Service?: InputMaybe<ServiceUpsertWithNestedWhereUniqueInput>;
+  ServiceItem?: InputMaybe<ServiceItemUpsertWithNestedWhereUniqueInput>;
 };
 
 export type LinkPageWhereInput = {
@@ -1964,7 +2675,7 @@ export type LinkPageWhereInput = {
   Page?: InputMaybe<PageWhereInput>;
   Post?: InputMaybe<PostWhereInput>;
   Project?: InputMaybe<ProjectWhereInput>;
-  Service?: InputMaybe<ServiceWhereInput>;
+  ServiceItem?: InputMaybe<ServiceItemWhereInput>;
 };
 
 export type LinkPageWhereUniqueInput = {
@@ -1972,7 +2683,7 @@ export type LinkPageWhereUniqueInput = {
   Page?: InputMaybe<PageWhereUniqueInput>;
   Post?: InputMaybe<PostWhereUniqueInput>;
   Project?: InputMaybe<ProjectWhereUniqueInput>;
-  Service?: InputMaybe<ServiceWhereUniqueInput>;
+  ServiceItem?: InputMaybe<ServiceItemWhereUniqueInput>;
 };
 
 export type LinkParent = Navigation;
@@ -2254,10 +2965,10 @@ export type Mutation = {
   createProject?: Maybe<Project>;
   /** Create one scheduledRelease */
   createScheduledRelease?: Maybe<ScheduledRelease>;
-  /** Create one service */
-  createService?: Maybe<Service>;
   /** Create one serviceEntry */
   createServiceEntry?: Maybe<ServiceEntry>;
+  /** Create one serviceItem */
+  createServiceItem?: Maybe<ServiceItem>;
   /** Delete one asset from _all_ existing stages. Returns deleted document. */
   deleteAsset?: Maybe<Asset>;
   /** Delete one author from _all_ existing stages. Returns deleted document. */
@@ -2312,12 +3023,12 @@ export type Mutation = {
   /** Delete many ServiceEntry documents, return deleted documents */
   deleteManyServiceEntriesConnection: ServiceEntryConnection;
   /**
-   * Delete many Service documents
-   * @deprecated Please use the new paginated many mutation (deleteManyServicesConnection)
+   * Delete many ServiceItem documents
+   * @deprecated Please use the new paginated many mutation (deleteManyServiceItemsConnection)
    */
-  deleteManyServices: BatchPayload;
-  /** Delete many Service documents, return deleted documents */
-  deleteManyServicesConnection: ServiceConnection;
+  deleteManyServiceItems: BatchPayload;
+  /** Delete many ServiceItem documents, return deleted documents */
+  deleteManyServiceItemsConnection: ServiceItemConnection;
   /** Delete one navigation from _all_ existing stages. Returns deleted document. */
   deleteNavigation?: Maybe<Navigation>;
   /** Delete one page from _all_ existing stages. Returns deleted document. */
@@ -2330,10 +3041,10 @@ export type Mutation = {
   deleteScheduledOperation?: Maybe<ScheduledOperation>;
   /** Delete one scheduledRelease from _all_ existing stages. Returns deleted document. */
   deleteScheduledRelease?: Maybe<ScheduledRelease>;
-  /** Delete one service from _all_ existing stages. Returns deleted document. */
-  deleteService?: Maybe<Service>;
   /** Delete one serviceEntry from _all_ existing stages. Returns deleted document. */
   deleteServiceEntry?: Maybe<ServiceEntry>;
+  /** Delete one serviceItem from _all_ existing stages. Returns deleted document. */
+  deleteServiceItem?: Maybe<ServiceItem>;
   /** Publish one asset */
   publishAsset?: Maybe<Asset>;
   /** Publish one author */
@@ -2388,12 +3099,12 @@ export type Mutation = {
   /** Publish many ServiceEntry documents */
   publishManyServiceEntriesConnection: ServiceEntryConnection;
   /**
-   * Publish many Service documents
-   * @deprecated Please use the new paginated many mutation (publishManyServicesConnection)
+   * Publish many ServiceItem documents
+   * @deprecated Please use the new paginated many mutation (publishManyServiceItemsConnection)
    */
-  publishManyServices: BatchPayload;
-  /** Publish many Service documents */
-  publishManyServicesConnection: ServiceConnection;
+  publishManyServiceItems: BatchPayload;
+  /** Publish many ServiceItem documents */
+  publishManyServiceItemsConnection: ServiceItemConnection;
   /** Publish one navigation */
   publishNavigation?: Maybe<Navigation>;
   /** Publish one page */
@@ -2402,10 +3113,10 @@ export type Mutation = {
   publishPost?: Maybe<Post>;
   /** Publish one project */
   publishProject?: Maybe<Project>;
-  /** Publish one service */
-  publishService?: Maybe<Service>;
   /** Publish one serviceEntry */
   publishServiceEntry?: Maybe<ServiceEntry>;
+  /** Publish one serviceItem */
+  publishServiceItem?: Maybe<ServiceItem>;
   /** Schedule to publish one asset */
   schedulePublishAsset?: Maybe<Asset>;
   /** Schedule to publish one author */
@@ -2418,10 +3129,10 @@ export type Mutation = {
   schedulePublishPost?: Maybe<Post>;
   /** Schedule to publish one project */
   schedulePublishProject?: Maybe<Project>;
-  /** Schedule to publish one service */
-  schedulePublishService?: Maybe<Service>;
   /** Schedule to publish one serviceEntry */
   schedulePublishServiceEntry?: Maybe<ServiceEntry>;
+  /** Schedule to publish one serviceItem */
+  schedulePublishServiceItem?: Maybe<ServiceItem>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishAsset?: Maybe<Asset>;
   /** Unpublish one author from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2434,10 +3145,10 @@ export type Mutation = {
   scheduleUnpublishPost?: Maybe<Post>;
   /** Unpublish one project from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishProject?: Maybe<Project>;
-  /** Unpublish one service from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
-  scheduleUnpublishService?: Maybe<Service>;
   /** Unpublish one serviceEntry from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishServiceEntry?: Maybe<ServiceEntry>;
+  /** Unpublish one serviceItem from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishServiceItem?: Maybe<ServiceItem>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishAsset?: Maybe<Asset>;
   /** Unpublish one author from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2492,12 +3203,12 @@ export type Mutation = {
   /** Find many ServiceEntry documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyServiceEntriesConnection: ServiceEntryConnection;
   /**
-   * Unpublish many Service documents
-   * @deprecated Please use the new paginated many mutation (unpublishManyServicesConnection)
+   * Unpublish many ServiceItem documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyServiceItemsConnection)
    */
-  unpublishManyServices: BatchPayload;
-  /** Find many Service documents that match criteria in specified stage and unpublish from target stages */
-  unpublishManyServicesConnection: ServiceConnection;
+  unpublishManyServiceItems: BatchPayload;
+  /** Find many ServiceItem documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyServiceItemsConnection: ServiceItemConnection;
   /** Unpublish one navigation from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishNavigation?: Maybe<Navigation>;
   /** Unpublish one page from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2506,10 +3217,10 @@ export type Mutation = {
   unpublishPost?: Maybe<Post>;
   /** Unpublish one project from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishProject?: Maybe<Project>;
-  /** Unpublish one service from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
-  unpublishService?: Maybe<Service>;
   /** Unpublish one serviceEntry from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishServiceEntry?: Maybe<ServiceEntry>;
+  /** Unpublish one serviceItem from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishServiceItem?: Maybe<ServiceItem>;
   /** Update one asset */
   updateAsset?: Maybe<Asset>;
   /** Update one author */
@@ -2564,12 +3275,12 @@ export type Mutation = {
   /** Update many ServiceEntry documents */
   updateManyServiceEntriesConnection: ServiceEntryConnection;
   /**
-   * Update many services
-   * @deprecated Please use the new paginated many mutation (updateManyServicesConnection)
+   * Update many serviceItems
+   * @deprecated Please use the new paginated many mutation (updateManyServiceItemsConnection)
    */
-  updateManyServices: BatchPayload;
-  /** Update many Service documents */
-  updateManyServicesConnection: ServiceConnection;
+  updateManyServiceItems: BatchPayload;
+  /** Update many ServiceItem documents */
+  updateManyServiceItemsConnection: ServiceItemConnection;
   /** Update one navigation */
   updateNavigation?: Maybe<Navigation>;
   /** Update one page */
@@ -2580,10 +3291,10 @@ export type Mutation = {
   updateProject?: Maybe<Project>;
   /** Update one scheduledRelease */
   updateScheduledRelease?: Maybe<ScheduledRelease>;
-  /** Update one service */
-  updateService?: Maybe<Service>;
   /** Update one serviceEntry */
   updateServiceEntry?: Maybe<ServiceEntry>;
+  /** Update one serviceItem */
+  updateServiceItem?: Maybe<ServiceItem>;
   /** Upsert one asset */
   upsertAsset?: Maybe<Asset>;
   /** Upsert one author */
@@ -2596,10 +3307,10 @@ export type Mutation = {
   upsertPost?: Maybe<Post>;
   /** Upsert one project */
   upsertProject?: Maybe<Project>;
-  /** Upsert one service */
-  upsertService?: Maybe<Service>;
   /** Upsert one serviceEntry */
   upsertServiceEntry?: Maybe<ServiceEntry>;
+  /** Upsert one serviceItem */
+  upsertServiceItem?: Maybe<ServiceItem>;
 };
 
 
@@ -2638,13 +3349,13 @@ export type MutationCreateScheduledReleaseArgs = {
 };
 
 
-export type MutationCreateServiceArgs = {
-  data: ServiceCreateInput;
+export type MutationCreateServiceEntryArgs = {
+  data: ServiceEntryCreateInput;
 };
 
 
-export type MutationCreateServiceEntryArgs = {
-  data: ServiceEntryCreateInput;
+export type MutationCreateServiceItemArgs = {
+  data: ServiceItemCreateInput;
 };
 
 
@@ -2763,18 +3474,18 @@ export type MutationDeleteManyServiceEntriesConnectionArgs = {
 };
 
 
-export type MutationDeleteManyServicesArgs = {
-  where?: InputMaybe<ServiceManyWhereInput>;
+export type MutationDeleteManyServiceItemsArgs = {
+  where?: InputMaybe<ServiceItemManyWhereInput>;
 };
 
 
-export type MutationDeleteManyServicesConnectionArgs = {
+export type MutationDeleteManyServiceItemsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
   before?: InputMaybe<Scalars['ID']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<ServiceManyWhereInput>;
+  where?: InputMaybe<ServiceItemManyWhereInput>;
 };
 
 
@@ -2808,13 +3519,13 @@ export type MutationDeleteScheduledReleaseArgs = {
 };
 
 
-export type MutationDeleteServiceArgs = {
-  where: ServiceWhereUniqueInput;
+export type MutationDeleteServiceEntryArgs = {
+  where: ServiceEntryWhereUniqueInput;
 };
 
 
-export type MutationDeleteServiceEntryArgs = {
-  where: ServiceEntryWhereUniqueInput;
+export type MutationDeleteServiceItemArgs = {
+  where: ServiceItemWhereUniqueInput;
 };
 
 
@@ -2971,13 +3682,13 @@ export type MutationPublishManyServiceEntriesConnectionArgs = {
 };
 
 
-export type MutationPublishManyServicesArgs = {
+export type MutationPublishManyServiceItemsArgs = {
   to?: Array<Stage>;
-  where?: InputMaybe<ServiceManyWhereInput>;
+  where?: InputMaybe<ServiceItemManyWhereInput>;
 };
 
 
-export type MutationPublishManyServicesConnectionArgs = {
+export type MutationPublishManyServiceItemsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
   before?: InputMaybe<Scalars['ID']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
@@ -2985,7 +3696,7 @@ export type MutationPublishManyServicesConnectionArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   to?: Array<Stage>;
-  where?: InputMaybe<ServiceManyWhereInput>;
+  where?: InputMaybe<ServiceItemManyWhereInput>;
 };
 
 
@@ -3013,18 +3724,18 @@ export type MutationPublishProjectArgs = {
 };
 
 
-export type MutationPublishServiceArgs = {
-  to?: Array<Stage>;
-  where: ServiceWhereUniqueInput;
-};
-
-
 export type MutationPublishServiceEntryArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
   to?: Array<Stage>;
   where: ServiceEntryWhereUniqueInput;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type MutationPublishServiceItemArgs = {
+  to?: Array<Stage>;
+  where: ServiceItemWhereUniqueInput;
 };
 
 
@@ -3079,14 +3790,6 @@ export type MutationSchedulePublishProjectArgs = {
 };
 
 
-export type MutationSchedulePublishServiceArgs = {
-  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
-  releaseId?: InputMaybe<Scalars['String']['input']>;
-  to?: Array<Stage>;
-  where: ServiceWhereUniqueInput;
-};
-
-
 export type MutationSchedulePublishServiceEntryArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3095,6 +3798,14 @@ export type MutationSchedulePublishServiceEntryArgs = {
   to?: Array<Stage>;
   where: ServiceEntryWhereUniqueInput;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type MutationSchedulePublishServiceItemArgs = {
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  to?: Array<Stage>;
+  where: ServiceItemWhereUniqueInput;
 };
 
 
@@ -3148,14 +3859,6 @@ export type MutationScheduleUnpublishProjectArgs = {
 };
 
 
-export type MutationScheduleUnpublishServiceArgs = {
-  from?: Array<Stage>;
-  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
-  releaseId?: InputMaybe<Scalars['String']['input']>;
-  where: ServiceWhereUniqueInput;
-};
-
-
 export type MutationScheduleUnpublishServiceEntryArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -3163,6 +3866,14 @@ export type MutationScheduleUnpublishServiceEntryArgs = {
   releaseId?: InputMaybe<Scalars['String']['input']>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where: ServiceEntryWhereUniqueInput;
+};
+
+
+export type MutationScheduleUnpublishServiceItemArgs = {
+  from?: Array<Stage>;
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  where: ServiceItemWhereUniqueInput;
 };
 
 
@@ -3314,13 +4025,13 @@ export type MutationUnpublishManyServiceEntriesConnectionArgs = {
 };
 
 
-export type MutationUnpublishManyServicesArgs = {
+export type MutationUnpublishManyServiceItemsArgs = {
   from?: Array<Stage>;
-  where?: InputMaybe<ServiceManyWhereInput>;
+  where?: InputMaybe<ServiceItemManyWhereInput>;
 };
 
 
-export type MutationUnpublishManyServicesConnectionArgs = {
+export type MutationUnpublishManyServiceItemsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
   before?: InputMaybe<Scalars['ID']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
@@ -3328,7 +4039,7 @@ export type MutationUnpublishManyServicesConnectionArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   stage?: InputMaybe<Stage>;
-  where?: InputMaybe<ServiceManyWhereInput>;
+  where?: InputMaybe<ServiceItemManyWhereInput>;
 };
 
 
@@ -3356,17 +4067,17 @@ export type MutationUnpublishProjectArgs = {
 };
 
 
-export type MutationUnpublishServiceArgs = {
-  from?: Array<Stage>;
-  where: ServiceWhereUniqueInput;
-};
-
-
 export type MutationUnpublishServiceEntryArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where: ServiceEntryWhereUniqueInput;
+};
+
+
+export type MutationUnpublishServiceItemArgs = {
+  from?: Array<Stage>;
+  where: ServiceItemWhereUniqueInput;
 };
 
 
@@ -3501,20 +4212,20 @@ export type MutationUpdateManyServiceEntriesConnectionArgs = {
 };
 
 
-export type MutationUpdateManyServicesArgs = {
-  data: ServiceUpdateManyInput;
-  where?: InputMaybe<ServiceManyWhereInput>;
+export type MutationUpdateManyServiceItemsArgs = {
+  data: ServiceItemUpdateManyInput;
+  where?: InputMaybe<ServiceItemManyWhereInput>;
 };
 
 
-export type MutationUpdateManyServicesConnectionArgs = {
+export type MutationUpdateManyServiceItemsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
   before?: InputMaybe<Scalars['ID']['input']>;
-  data: ServiceUpdateManyInput;
+  data: ServiceItemUpdateManyInput;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<ServiceManyWhereInput>;
+  where?: InputMaybe<ServiceItemManyWhereInput>;
 };
 
 
@@ -3548,15 +4259,15 @@ export type MutationUpdateScheduledReleaseArgs = {
 };
 
 
-export type MutationUpdateServiceArgs = {
-  data: ServiceUpdateInput;
-  where: ServiceWhereUniqueInput;
-};
-
-
 export type MutationUpdateServiceEntryArgs = {
   data: ServiceEntryUpdateInput;
   where: ServiceEntryWhereUniqueInput;
+};
+
+
+export type MutationUpdateServiceItemArgs = {
+  data: ServiceItemUpdateInput;
+  where: ServiceItemWhereUniqueInput;
 };
 
 
@@ -3596,15 +4307,15 @@ export type MutationUpsertProjectArgs = {
 };
 
 
-export type MutationUpsertServiceArgs = {
-  upsert: ServiceUpsertInput;
-  where: ServiceWhereUniqueInput;
-};
-
-
 export type MutationUpsertServiceEntryArgs = {
   upsert: ServiceEntryUpsertInput;
   where: ServiceEntryWhereUniqueInput;
+};
+
+
+export type MutationUpsertServiceItemArgs = {
+  upsert: ServiceItemUpsertInput;
+  where: ServiceItemWhereUniqueInput;
 };
 
 export type Navigation = Entity & Node & {
@@ -4071,6 +4782,9 @@ export type Node = {
 
 export type Page = Entity & Node & {
   __typename?: 'Page';
+  accordion: Array<PageaccordionUnion>;
+  /** Banner component */
+  banner?: Maybe<BannerComponent>;
   /** Enter the content for this page. The content uses the rich-text editor, giving you a better visual representation. */
   content: RichText;
   /** The time the document was created */
@@ -4089,7 +4803,7 @@ export type Page = Entity & Node & {
   publishedBy?: Maybe<User>;
   scheduledIn: Array<ScheduledOperation>;
   seoOverride?: Maybe<SeoOverride>;
-  serviceItems: Array<ServiceComponent>;
+  serviceItems: Array<Service>;
   /** Enter the slug for this page, such as about, blog, or contact */
   slug: Scalars['String']['output'];
   /** System stage field */
@@ -4102,6 +4816,23 @@ export type Page = Entity & Node & {
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
+};
+
+
+export type PageAccordionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PageBannerArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
 };
 
 
@@ -4156,9 +4887,9 @@ export type PageServiceItemsArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   locales?: InputMaybe<Array<Locale>>;
-  orderBy?: InputMaybe<ServiceComponentOrderByInput>;
+  orderBy?: InputMaybe<ServiceOrderByInput>;
   skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<ServiceComponentWhereInput>;
+  where?: InputMaybe<ServiceWhereInput>;
 };
 
 
@@ -4185,10 +4916,12 @@ export type PageConnection = {
 };
 
 export type PageCreateInput = {
+  accordion?: InputMaybe<PageaccordionUnionCreateManyInlineInput>;
+  banner?: InputMaybe<BannerComponentCreateOneInlineInput>;
   content: Scalars['RichTextAST']['input'];
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   seoOverride?: InputMaybe<SeoOverrideCreateOneInlineInput>;
-  serviceItems?: InputMaybe<ServiceComponentCreateManyInlineInput>;
+  serviceItems?: InputMaybe<ServiceCreateManyInlineInput>;
   slug: Scalars['String']['input'];
   subtitle?: InputMaybe<Scalars['String']['input']>;
   title: Scalars['String']['input'];
@@ -4243,6 +4976,11 @@ export type PageManyWhereInput = {
   OR?: InputMaybe<Array<PageWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  /** All values in which the union is empty. */
+  accordion_empty?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Matches if the modular component contains at least one connection to the item provided to the filter */
+  accordion_some?: InputMaybe<PageaccordionUnionWhereInput>;
+  banner?: InputMaybe<BannerComponentWhereInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -4301,9 +5039,9 @@ export type PageManyWhereInput = {
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
   seoOverride?: InputMaybe<SeoOverrideWhereInput>;
-  serviceItems_every?: InputMaybe<ServiceComponentWhereInput>;
-  serviceItems_none?: InputMaybe<ServiceComponentWhereInput>;
-  serviceItems_some?: InputMaybe<ServiceComponentWhereInput>;
+  serviceItems_every?: InputMaybe<ServiceWhereInput>;
+  serviceItems_none?: InputMaybe<ServiceWhereInput>;
+  serviceItems_some?: InputMaybe<ServiceWhereInput>;
   slug?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   slug_contains?: InputMaybe<Scalars['String']['input']>;
@@ -4397,9 +5135,11 @@ export enum PageOrderByInput {
 }
 
 export type PageUpdateInput = {
+  accordion?: InputMaybe<PageaccordionUnionUpdateManyInlineInput>;
+  banner?: InputMaybe<BannerComponentUpdateOneInlineInput>;
   content?: InputMaybe<Scalars['RichTextAST']['input']>;
   seoOverride?: InputMaybe<SeoOverrideUpdateOneInlineInput>;
-  serviceItems?: InputMaybe<ServiceComponentUpdateManyInlineInput>;
+  serviceItems?: InputMaybe<ServiceUpdateManyInlineInput>;
   slug?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -4487,6 +5227,11 @@ export type PageWhereInput = {
   OR?: InputMaybe<Array<PageWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  /** All values in which the union is empty. */
+  accordion_empty?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Matches if the modular component contains at least one connection to the item provided to the filter */
+  accordion_some?: InputMaybe<PageaccordionUnionWhereInput>;
+  banner?: InputMaybe<BannerComponentWhereInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -4545,9 +5290,9 @@ export type PageWhereInput = {
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
   seoOverride?: InputMaybe<SeoOverrideWhereInput>;
-  serviceItems_every?: InputMaybe<ServiceComponentWhereInput>;
-  serviceItems_none?: InputMaybe<ServiceComponentWhereInput>;
-  serviceItems_some?: InputMaybe<ServiceComponentWhereInput>;
+  serviceItems_every?: InputMaybe<ServiceWhereInput>;
+  serviceItems_none?: InputMaybe<ServiceWhereInput>;
+  serviceItems_some?: InputMaybe<ServiceWhereInput>;
   slug?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   slug_contains?: InputMaybe<Scalars['String']['input']>;
@@ -4641,6 +5386,84 @@ export type PageWhereStageInput = {
 export type PageWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageaccordionUnion = AccordionComponent;
+
+export type PageaccordionUnionConnectInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentConnectInput>;
+};
+
+export type PageaccordionUnionCreateInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentCreateInput>;
+};
+
+export type PageaccordionUnionCreateManyInlineInput = {
+  /** Create and connect multiple existing PageaccordionUnion documents */
+  create?: InputMaybe<Array<PageaccordionUnionCreateInput>>;
+};
+
+export type PageaccordionUnionCreateOneInlineInput = {
+  /** Create and connect one PageaccordionUnion document */
+  create?: InputMaybe<PageaccordionUnionCreateInput>;
+};
+
+export type PageaccordionUnionCreateWithPositionInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentCreateWithPositionInput>;
+};
+
+export type PageaccordionUnionUpdateInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentUpdateInput>;
+};
+
+export type PageaccordionUnionUpdateManyInlineInput = {
+  /** Create and connect multiple PageaccordionUnion component instances */
+  create?: InputMaybe<Array<PageaccordionUnionCreateWithPositionInput>>;
+  /** Delete multiple PageaccordionUnion documents */
+  delete?: InputMaybe<Array<PageaccordionUnionWhereUniqueInput>>;
+  /** Update multiple PageaccordionUnion component instances */
+  update?: InputMaybe<Array<PageaccordionUnionUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple PageaccordionUnion component instances */
+  upsert?: InputMaybe<Array<PageaccordionUnionUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+export type PageaccordionUnionUpdateManyWithNestedWhereInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentUpdateManyWithNestedWhereInput>;
+};
+
+export type PageaccordionUnionUpdateOneInlineInput = {
+  /** Create and connect one PageaccordionUnion document */
+  create?: InputMaybe<PageaccordionUnionCreateInput>;
+  /** Delete currently connected PageaccordionUnion document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single PageaccordionUnion document */
+  update?: InputMaybe<PageaccordionUnionUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single PageaccordionUnion document */
+  upsert?: InputMaybe<PageaccordionUnionUpsertWithNestedWhereUniqueInput>;
+};
+
+export type PageaccordionUnionUpdateWithNestedWhereUniqueAndPositionInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentUpdateWithNestedWhereUniqueAndPositionInput>;
+};
+
+export type PageaccordionUnionUpdateWithNestedWhereUniqueInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentUpdateWithNestedWhereUniqueInput>;
+};
+
+export type PageaccordionUnionUpsertWithNestedWhereUniqueAndPositionInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentUpsertWithNestedWhereUniqueAndPositionInput>;
+};
+
+export type PageaccordionUnionUpsertWithNestedWhereUniqueInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentUpsertWithNestedWhereUniqueInput>;
+};
+
+export type PageaccordionUnionWhereInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentWhereInput>;
+};
+
+export type PageaccordionUnionWhereUniqueInput = {
+  AccordionComponent?: InputMaybe<AccordionComponentWhereUniqueInput>;
 };
 
 export type Post = Entity & Node & {
@@ -6067,8 +6890,6 @@ export type Query = {
   scheduledReleases: Array<ScheduledRelease>;
   /** Retrieve multiple scheduledReleases using the Relay connection interface */
   scheduledReleasesConnection: ScheduledReleaseConnection;
-  /** Retrieve a single service */
-  service?: Maybe<Service>;
   /** Retrieve multiple serviceEntries */
   serviceEntries: Array<ServiceEntry>;
   /** Retrieve multiple serviceEntries using the Relay connection interface */
@@ -6077,12 +6898,14 @@ export type Query = {
   serviceEntry?: Maybe<ServiceEntry>;
   /** Retrieve document version */
   serviceEntryVersion?: Maybe<DocumentVersion>;
+  /** Retrieve a single serviceItem */
+  serviceItem?: Maybe<ServiceItem>;
   /** Retrieve document version */
-  serviceVersion?: Maybe<DocumentVersion>;
-  /** Retrieve multiple services */
-  services: Array<Service>;
-  /** Retrieve multiple services using the Relay connection interface */
-  servicesConnection: ServiceConnection;
+  serviceItemVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple serviceItems */
+  serviceItems: Array<ServiceItem>;
+  /** Retrieve multiple serviceItems using the Relay connection interface */
+  serviceItemsConnection: ServiceItemConnection;
   /** Retrieve a single user */
   user?: Maybe<User>;
   /** Retrieve multiple users */
@@ -6399,13 +7222,6 @@ export type QueryScheduledReleasesConnectionArgs = {
 };
 
 
-export type QueryServiceArgs = {
-  locales?: Array<Locale>;
-  stage?: Stage;
-  where: ServiceWhereUniqueInput;
-};
-
-
 export type QueryServiceEntriesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
@@ -6444,34 +7260,41 @@ export type QueryServiceEntryVersionArgs = {
 };
 
 
-export type QueryServiceVersionArgs = {
+export type QueryServiceItemArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: ServiceItemWhereUniqueInput;
+};
+
+
+export type QueryServiceItemVersionArgs = {
   where: VersionWhereInput;
 };
 
 
-export type QueryServicesArgs = {
+export type QueryServiceItemsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   locales?: Array<Locale>;
-  orderBy?: InputMaybe<ServiceOrderByInput>;
+  orderBy?: InputMaybe<ServiceItemOrderByInput>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   stage?: Stage;
-  where?: InputMaybe<ServiceWhereInput>;
+  where?: InputMaybe<ServiceItemWhereInput>;
 };
 
 
-export type QueryServicesConnectionArgs = {
+export type QueryServiceItemsConnectionArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   locales?: Array<Locale>;
-  orderBy?: InputMaybe<ServiceOrderByInput>;
+  orderBy?: InputMaybe<ServiceItemOrderByInput>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   stage?: Stage;
-  where?: InputMaybe<ServiceWhereInput>;
+  where?: InputMaybe<ServiceItemWhereInput>;
 };
 
 
@@ -6619,7 +7442,7 @@ export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Asset | Author | Navigation | Page | Post | Project | Service | ServiceEntry;
+export type ScheduledOperationAffectedDocument = Asset | Author | Navigation | Page | Post | Project | ServiceEntry | ServiceItem;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -7948,390 +8771,28 @@ export type SeoOverrideWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
 
-/** Services which we offer to our clients  */
-export type Service = Entity & Node & {
+/** Services component that will render a list of services */
+export type Service = Entity & {
   __typename?: 'Service';
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']['output'];
-  /** User that created this document */
-  createdBy?: Maybe<User>;
-  /** Rich text component that allows flexibility */
-  description?: Maybe<RichText>;
-  /** Get the document in other stages */
-  documentInStages: Array<Service>;
-  /** List of Service versions */
-  history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** User that last published this document */
-  publishedBy?: Maybe<User>;
-  scheduledIn: Array<ScheduledOperation>;
-  /** System stage field */
-  stage: Stage;
-  /** Name your blog post! */
-  title: Scalars['String']['output'];
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']['output'];
-  /** User that last updated this document */
-  updatedBy?: Maybe<User>;
-};
-
-
-/** Services which we offer to our clients  */
-export type ServiceCreatedByArgs = {
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-};
-
-
-/** Services which we offer to our clients  */
-export type ServiceDocumentInStagesArgs = {
-  includeCurrent?: Scalars['Boolean']['input'];
-  inheritLocale?: Scalars['Boolean']['input'];
-  stages?: Array<Stage>;
-};
-
-
-/** Services which we offer to our clients  */
-export type ServiceHistoryArgs = {
-  limit?: Scalars['Int']['input'];
-  skip?: Scalars['Int']['input'];
-  stageOverride?: InputMaybe<Stage>;
-};
-
-
-/** Services which we offer to our clients  */
-export type ServicePublishedByArgs = {
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-};
-
-
-/** Services which we offer to our clients  */
-export type ServiceScheduledInArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<ScheduledOperationWhereInput>;
-};
-
-
-/** Services which we offer to our clients  */
-export type ServiceUpdatedByArgs = {
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-};
-
-/** Services component that will render a list of services */
-export type ServiceComponent = Entity & {
-  __typename?: 'ServiceComponent';
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  service: Array<Service>;
+  service: Array<ServiceItem>;
   /** System stage field */
   stage: Stage;
 };
 
 
 /** Services component that will render a list of services */
-export type ServiceComponentServiceArgs = {
+export type ServiceServiceArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   locales?: InputMaybe<Array<Locale>>;
-  orderBy?: InputMaybe<ServiceOrderByInput>;
+  orderBy?: InputMaybe<ServiceItemOrderByInput>;
   skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<ServiceWhereInput>;
-};
-
-export type ServiceComponentConnectInput = {
-  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
-  position?: InputMaybe<ConnectPositionInput>;
-  /** Document to connect */
-  where: ServiceComponentWhereUniqueInput;
-};
-
-/** A connection to a list of items. */
-export type ServiceComponentConnection = {
-  __typename?: 'ServiceComponentConnection';
-  aggregate: Aggregate;
-  /** A list of edges. */
-  edges: Array<ServiceComponentEdge>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-};
-
-export type ServiceComponentCreateInput = {
-  service?: InputMaybe<ServiceCreateManyInlineInput>;
-};
-
-export type ServiceComponentCreateManyInlineInput = {
-  /** Create and connect multiple existing ServiceComponent documents */
-  create?: InputMaybe<Array<ServiceComponentCreateInput>>;
-};
-
-export type ServiceComponentCreateOneInlineInput = {
-  /** Create and connect one ServiceComponent document */
-  create?: InputMaybe<ServiceComponentCreateInput>;
-};
-
-export type ServiceComponentCreateWithPositionInput = {
-  /** Document to create */
-  data: ServiceComponentCreateInput;
-  /** Position in the list of existing component instances, will default to appending at the end of list */
-  position?: InputMaybe<ConnectPositionInput>;
-};
-
-/** An edge in a connection. */
-export type ServiceComponentEdge = {
-  __typename?: 'ServiceComponentEdge';
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
-  /** The item at the end of the edge. */
-  node: ServiceComponent;
-};
-
-/** Identifies documents */
-export type ServiceComponentManyWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<ServiceComponentWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<ServiceComponentWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<ServiceComponentWhereInput>>;
-  /** Contains search across all appropriate fields. */
-  _search?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  /** All values containing the given string. */
-  id_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values ending with the given string. */
-  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are contained in given list. */
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  id_not?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not containing the given string. */
-  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not ending with the given string */
-  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are not contained in given list. */
-  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values starting with the given string. */
-  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  service_every?: InputMaybe<ServiceWhereInput>;
-  service_none?: InputMaybe<ServiceWhereInput>;
-  service_some?: InputMaybe<ServiceWhereInput>;
-};
-
-export enum ServiceComponentOrderByInput {
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC'
-}
-
-export type ServiceComponentParent = Page;
-
-export type ServiceComponentParentConnectInput = {
-  Page?: InputMaybe<PageConnectInput>;
-};
-
-export type ServiceComponentParentCreateInput = {
-  Page?: InputMaybe<PageCreateInput>;
-};
-
-export type ServiceComponentParentCreateManyInlineInput = {
-  /** Connect multiple existing ServiceComponentParent documents */
-  connect?: InputMaybe<Array<ServiceComponentParentWhereUniqueInput>>;
-  /** Create and connect multiple existing ServiceComponentParent documents */
-  create?: InputMaybe<Array<ServiceComponentParentCreateInput>>;
-};
-
-export type ServiceComponentParentCreateOneInlineInput = {
-  /** Connect one existing ServiceComponentParent document */
-  connect?: InputMaybe<ServiceComponentParentWhereUniqueInput>;
-  /** Create and connect one ServiceComponentParent document */
-  create?: InputMaybe<ServiceComponentParentCreateInput>;
-};
-
-export type ServiceComponentParentUpdateInput = {
-  Page?: InputMaybe<PageUpdateInput>;
-};
-
-export type ServiceComponentParentUpdateManyInlineInput = {
-  /** Connect multiple existing ServiceComponentParent documents */
-  connect?: InputMaybe<Array<ServiceComponentParentConnectInput>>;
-  /** Create and connect multiple ServiceComponentParent documents */
-  create?: InputMaybe<Array<ServiceComponentParentCreateInput>>;
-  /** Delete multiple ServiceComponentParent documents */
-  delete?: InputMaybe<Array<ServiceComponentParentWhereUniqueInput>>;
-  /** Disconnect multiple ServiceComponentParent documents */
-  disconnect?: InputMaybe<Array<ServiceComponentParentWhereUniqueInput>>;
-  /** Override currently-connected documents with multiple existing ServiceComponentParent documents */
-  set?: InputMaybe<Array<ServiceComponentParentWhereUniqueInput>>;
-  /** Update multiple ServiceComponentParent documents */
-  update?: InputMaybe<Array<ServiceComponentParentUpdateWithNestedWhereUniqueInput>>;
-  /** Upsert multiple ServiceComponentParent documents */
-  upsert?: InputMaybe<Array<ServiceComponentParentUpsertWithNestedWhereUniqueInput>>;
-};
-
-export type ServiceComponentParentUpdateManyWithNestedWhereInput = {
-  Page?: InputMaybe<PageUpdateManyWithNestedWhereInput>;
-};
-
-export type ServiceComponentParentUpdateOneInlineInput = {
-  /** Connect existing ServiceComponentParent document */
-  connect?: InputMaybe<ServiceComponentParentWhereUniqueInput>;
-  /** Create and connect one ServiceComponentParent document */
-  create?: InputMaybe<ServiceComponentParentCreateInput>;
-  /** Delete currently connected ServiceComponentParent document */
-  delete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Disconnect currently connected ServiceComponentParent document */
-  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Update single ServiceComponentParent document */
-  update?: InputMaybe<ServiceComponentParentUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single ServiceComponentParent document */
-  upsert?: InputMaybe<ServiceComponentParentUpsertWithNestedWhereUniqueInput>;
-};
-
-export type ServiceComponentParentUpdateWithNestedWhereUniqueInput = {
-  Page?: InputMaybe<PageUpdateWithNestedWhereUniqueInput>;
-};
-
-export type ServiceComponentParentUpsertWithNestedWhereUniqueInput = {
-  Page?: InputMaybe<PageUpsertWithNestedWhereUniqueInput>;
-};
-
-export type ServiceComponentParentWhereInput = {
-  Page?: InputMaybe<PageWhereInput>;
-};
-
-export type ServiceComponentParentWhereUniqueInput = {
-  Page?: InputMaybe<PageWhereUniqueInput>;
-};
-
-export type ServiceComponentUpdateInput = {
-  service?: InputMaybe<ServiceUpdateManyInlineInput>;
-};
-
-export type ServiceComponentUpdateManyInlineInput = {
-  /** Create and connect multiple ServiceComponent component instances */
-  create?: InputMaybe<Array<ServiceComponentCreateWithPositionInput>>;
-  /** Delete multiple ServiceComponent documents */
-  delete?: InputMaybe<Array<ServiceComponentWhereUniqueInput>>;
-  /** Update multiple ServiceComponent component instances */
-  update?: InputMaybe<Array<ServiceComponentUpdateWithNestedWhereUniqueAndPositionInput>>;
-  /** Upsert multiple ServiceComponent component instances */
-  upsert?: InputMaybe<Array<ServiceComponentUpsertWithNestedWhereUniqueAndPositionInput>>;
-};
-
-export type ServiceComponentUpdateManyInput = {
-  /** No fields in updateMany data input */
-  _?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ServiceComponentUpdateManyWithNestedWhereInput = {
-  /** Update many input */
-  data: ServiceComponentUpdateManyInput;
-  /** Document search */
-  where: ServiceComponentWhereInput;
-};
-
-export type ServiceComponentUpdateOneInlineInput = {
-  /** Create and connect one ServiceComponent document */
-  create?: InputMaybe<ServiceComponentCreateInput>;
-  /** Delete currently connected ServiceComponent document */
-  delete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Update single ServiceComponent document */
-  update?: InputMaybe<ServiceComponentUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single ServiceComponent document */
-  upsert?: InputMaybe<ServiceComponentUpsertWithNestedWhereUniqueInput>;
-};
-
-export type ServiceComponentUpdateWithNestedWhereUniqueAndPositionInput = {
-  /** Document to update */
-  data?: InputMaybe<ServiceComponentUpdateInput>;
-  /** Position in the list of existing component instances, will default to appending at the end of list */
-  position?: InputMaybe<ConnectPositionInput>;
-  /** Unique component instance search */
-  where: ServiceComponentWhereUniqueInput;
-};
-
-export type ServiceComponentUpdateWithNestedWhereUniqueInput = {
-  /** Document to update */
-  data: ServiceComponentUpdateInput;
-  /** Unique document search */
-  where: ServiceComponentWhereUniqueInput;
-};
-
-export type ServiceComponentUpsertInput = {
-  /** Create document if it didn't exist */
-  create: ServiceComponentCreateInput;
-  /** Update document if it exists */
-  update: ServiceComponentUpdateInput;
-};
-
-export type ServiceComponentUpsertWithNestedWhereUniqueAndPositionInput = {
-  /** Document to upsert */
-  data?: InputMaybe<ServiceComponentUpsertInput>;
-  /** Position in the list of existing component instances, will default to appending at the end of list */
-  position?: InputMaybe<ConnectPositionInput>;
-  /** Unique component instance search */
-  where: ServiceComponentWhereUniqueInput;
-};
-
-export type ServiceComponentUpsertWithNestedWhereUniqueInput = {
-  /** Upsert data */
-  data: ServiceComponentUpsertInput;
-  /** Unique document search */
-  where: ServiceComponentWhereUniqueInput;
-};
-
-/** Identifies documents */
-export type ServiceComponentWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<ServiceComponentWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<ServiceComponentWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<ServiceComponentWhereInput>>;
-  /** Contains search across all appropriate fields. */
-  _search?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  /** All values containing the given string. */
-  id_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values ending with the given string. */
-  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are contained in given list. */
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  id_not?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not containing the given string. */
-  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not ending with the given string */
-  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are not contained in given list. */
-  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values starting with the given string. */
-  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  service_every?: InputMaybe<ServiceWhereInput>;
-  service_none?: InputMaybe<ServiceWhereInput>;
-  service_some?: InputMaybe<ServiceWhereInput>;
-};
-
-/** References ServiceComponent record uniquely */
-export type ServiceComponentWhereUniqueInput = {
-  id?: InputMaybe<Scalars['ID']['input']>;
+  where?: InputMaybe<ServiceItemWhereInput>;
 };
 
 export type ServiceConnectInput = {
@@ -8352,26 +8813,24 @@ export type ServiceConnection = {
 };
 
 export type ServiceCreateInput = {
-  cm4y8ayga1ch307l9gb9m4u6u?: InputMaybe<ServiceEntryCreateManyInlineInput>;
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  description?: InputMaybe<Scalars['RichTextAST']['input']>;
-  serviceComponent?: InputMaybe<ServiceComponentCreateOneInlineInput>;
-  title: Scalars['String']['input'];
-  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  service?: InputMaybe<ServiceItemCreateManyInlineInput>;
 };
 
 export type ServiceCreateManyInlineInput = {
-  /** Connect multiple existing Service documents */
-  connect?: InputMaybe<Array<ServiceWhereUniqueInput>>;
   /** Create and connect multiple existing Service documents */
   create?: InputMaybe<Array<ServiceCreateInput>>;
 };
 
 export type ServiceCreateOneInlineInput = {
-  /** Connect one existing Service document */
-  connect?: InputMaybe<ServiceWhereUniqueInput>;
   /** Create and connect one Service document */
   create?: InputMaybe<ServiceCreateInput>;
+};
+
+export type ServiceCreateWithPositionInput = {
+  /** Document to create */
+  data: ServiceCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
 };
 
 /** An edge in a connection. */
@@ -8406,7 +8865,7 @@ export type ServiceEntry = Entity & Node & {
   publishedBy?: Maybe<User>;
   richTextTitle: RichText;
   scheduledIn: Array<ScheduledOperation>;
-  service: Array<Service>;
+  service: Array<ServiceItem>;
   /** System stage field */
   stage: Stage;
   title: Scalars['String']['output'];
@@ -8478,9 +8937,9 @@ export type ServiceEntryServiceArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   locales?: InputMaybe<Array<Locale>>;
-  orderBy?: InputMaybe<ServiceOrderByInput>;
+  orderBy?: InputMaybe<ServiceItemOrderByInput>;
   skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<ServiceWhereInput>;
+  where?: InputMaybe<ServiceItemWhereInput>;
 };
 
 
@@ -8518,7 +8977,7 @@ export type ServiceEntryCreateInput = {
   localizations?: InputMaybe<ServiceEntryCreateLocalizationsInput>;
   /** richTextTitle input for default locale (en) */
   richTextTitle: Scalars['RichTextAST']['input'];
-  service?: InputMaybe<ServiceCreateManyInlineInput>;
+  service?: InputMaybe<ServiceItemCreateManyInlineInput>;
   title: Scalars['String']['input'];
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
@@ -8630,9 +9089,9 @@ export type ServiceEntryManyWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
-  service_every?: InputMaybe<ServiceWhereInput>;
-  service_none?: InputMaybe<ServiceWhereInput>;
-  service_some?: InputMaybe<ServiceWhereInput>;
+  service_every?: InputMaybe<ServiceItemWhereInput>;
+  service_none?: InputMaybe<ServiceItemWhereInput>;
+  service_some?: InputMaybe<ServiceItemWhereInput>;
   title?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   title_contains?: InputMaybe<Scalars['String']['input']>;
@@ -8689,7 +9148,7 @@ export type ServiceEntryUpdateInput = {
   localizations?: InputMaybe<ServiceEntryUpdateLocalizationsInput>;
   /** richTextTitle input for default locale (en) */
   richTextTitle?: InputMaybe<Scalars['RichTextAST']['input']>;
-  service?: InputMaybe<ServiceUpdateManyInlineInput>;
+  service?: InputMaybe<ServiceItemUpdateManyInlineInput>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -8874,9 +9333,9 @@ export type ServiceEntryWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
-  service_every?: InputMaybe<ServiceWhereInput>;
-  service_none?: InputMaybe<ServiceWhereInput>;
-  service_some?: InputMaybe<ServiceWhereInput>;
+  service_every?: InputMaybe<ServiceItemWhereInput>;
+  service_none?: InputMaybe<ServiceItemWhereInput>;
+  service_some?: InputMaybe<ServiceItemWhereInput>;
   title?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   title_contains?: InputMaybe<Scalars['String']['input']>;
@@ -8933,14 +9392,143 @@ export type ServiceEntryWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
 
+/** Services which we offer to our clients  */
+export type ServiceItem = Entity & Node & {
+  __typename?: 'ServiceItem';
+  /** The time the document was created */
+  createdAt: Scalars['DateTime']['output'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  /** Rich text component that allows flexibility */
+  description?: Maybe<RichText>;
+  /** Get the document in other stages */
+  documentInStages: Array<ServiceItem>;
+  /** List of ServiceItem versions */
+  history: Array<Version>;
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  /** System stage field */
+  stage: Stage;
+  /** Name your blog post! */
+  title: Scalars['String']['output'];
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime']['output'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+
+/** Services which we offer to our clients  */
+export type ServiceItemCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+/** Services which we offer to our clients  */
+export type ServiceItemDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean']['input'];
+  inheritLocale?: Scalars['Boolean']['input'];
+  stages?: Array<Stage>;
+};
+
+
+/** Services which we offer to our clients  */
+export type ServiceItemHistoryArgs = {
+  limit?: Scalars['Int']['input'];
+  skip?: Scalars['Int']['input'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+
+/** Services which we offer to our clients  */
+export type ServiceItemPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+/** Services which we offer to our clients  */
+export type ServiceItemScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+
+/** Services which we offer to our clients  */
+export type ServiceItemUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type ServiceItemConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: ServiceItemWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type ServiceItemConnection = {
+  __typename?: 'ServiceItemConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<ServiceItemEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type ServiceItemCreateInput = {
+  cm4y8ayga1ch307l9gb9m4u6u?: InputMaybe<ServiceEntryCreateManyInlineInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  description?: InputMaybe<Scalars['RichTextAST']['input']>;
+  serviceComponent?: InputMaybe<ServiceCreateOneInlineInput>;
+  title: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type ServiceItemCreateManyInlineInput = {
+  /** Connect multiple existing ServiceItem documents */
+  connect?: InputMaybe<Array<ServiceItemWhereUniqueInput>>;
+  /** Create and connect multiple existing ServiceItem documents */
+  create?: InputMaybe<Array<ServiceItemCreateInput>>;
+};
+
+export type ServiceItemCreateOneInlineInput = {
+  /** Connect one existing ServiceItem document */
+  connect?: InputMaybe<ServiceItemWhereUniqueInput>;
+  /** Create and connect one ServiceItem document */
+  create?: InputMaybe<ServiceItemCreateInput>;
+};
+
+/** An edge in a connection. */
+export type ServiceItemEdge = {
+  __typename?: 'ServiceItemEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: ServiceItem;
+};
+
 /** Identifies documents */
-export type ServiceManyWhereInput = {
+export type ServiceItemManyWhereInput = {
   /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<ServiceWhereInput>>;
+  AND?: InputMaybe<Array<ServiceItemWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<ServiceWhereInput>>;
+  NOT?: InputMaybe<Array<ServiceItemWhereInput>>;
   /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<ServiceWhereInput>>;
+  OR?: InputMaybe<Array<ServiceItemWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -8959,9 +9547,9 @@ export type ServiceManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
-  documentInStages_every?: InputMaybe<ServiceWhereStageInput>;
-  documentInStages_none?: InputMaybe<ServiceWhereStageInput>;
-  documentInStages_some?: InputMaybe<ServiceWhereStageInput>;
+  documentInStages_every?: InputMaybe<ServiceItemWhereStageInput>;
+  documentInStages_none?: InputMaybe<ServiceItemWhereStageInput>;
+  documentInStages_some?: InputMaybe<ServiceItemWhereStageInput>;
   id?: InputMaybe<Scalars['ID']['input']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']['input']>;
@@ -9037,7 +9625,7 @@ export type ServiceManyWhereInput = {
   updatedBy?: InputMaybe<UserWhereInput>;
 };
 
-export enum ServiceOrderByInput {
+export enum ServiceItemOrderByInput {
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
   IdAsc = 'id_ASC',
@@ -9050,92 +9638,92 @@ export enum ServiceOrderByInput {
   UpdatedAtDesc = 'updatedAt_DESC'
 }
 
-export type ServiceUpdateInput = {
+export type ServiceItemUpdateInput = {
   cm4y8ayga1ch307l9gb9m4u6u?: InputMaybe<ServiceEntryUpdateManyInlineInput>;
   description?: InputMaybe<Scalars['RichTextAST']['input']>;
-  serviceComponent?: InputMaybe<ServiceComponentUpdateOneInlineInput>;
+  serviceComponent?: InputMaybe<ServiceUpdateOneInlineInput>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ServiceUpdateManyInlineInput = {
-  /** Connect multiple existing Service documents */
-  connect?: InputMaybe<Array<ServiceConnectInput>>;
-  /** Create and connect multiple Service documents */
-  create?: InputMaybe<Array<ServiceCreateInput>>;
-  /** Delete multiple Service documents */
-  delete?: InputMaybe<Array<ServiceWhereUniqueInput>>;
-  /** Disconnect multiple Service documents */
-  disconnect?: InputMaybe<Array<ServiceWhereUniqueInput>>;
-  /** Override currently-connected documents with multiple existing Service documents */
-  set?: InputMaybe<Array<ServiceWhereUniqueInput>>;
-  /** Update multiple Service documents */
-  update?: InputMaybe<Array<ServiceUpdateWithNestedWhereUniqueInput>>;
-  /** Upsert multiple Service documents */
-  upsert?: InputMaybe<Array<ServiceUpsertWithNestedWhereUniqueInput>>;
+export type ServiceItemUpdateManyInlineInput = {
+  /** Connect multiple existing ServiceItem documents */
+  connect?: InputMaybe<Array<ServiceItemConnectInput>>;
+  /** Create and connect multiple ServiceItem documents */
+  create?: InputMaybe<Array<ServiceItemCreateInput>>;
+  /** Delete multiple ServiceItem documents */
+  delete?: InputMaybe<Array<ServiceItemWhereUniqueInput>>;
+  /** Disconnect multiple ServiceItem documents */
+  disconnect?: InputMaybe<Array<ServiceItemWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing ServiceItem documents */
+  set?: InputMaybe<Array<ServiceItemWhereUniqueInput>>;
+  /** Update multiple ServiceItem documents */
+  update?: InputMaybe<Array<ServiceItemUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple ServiceItem documents */
+  upsert?: InputMaybe<Array<ServiceItemUpsertWithNestedWhereUniqueInput>>;
 };
 
-export type ServiceUpdateManyInput = {
+export type ServiceItemUpdateManyInput = {
   description?: InputMaybe<Scalars['RichTextAST']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ServiceUpdateManyWithNestedWhereInput = {
+export type ServiceItemUpdateManyWithNestedWhereInput = {
   /** Update many input */
-  data: ServiceUpdateManyInput;
+  data: ServiceItemUpdateManyInput;
   /** Document search */
-  where: ServiceWhereInput;
+  where: ServiceItemWhereInput;
 };
 
-export type ServiceUpdateOneInlineInput = {
-  /** Connect existing Service document */
-  connect?: InputMaybe<ServiceWhereUniqueInput>;
-  /** Create and connect one Service document */
-  create?: InputMaybe<ServiceCreateInput>;
-  /** Delete currently connected Service document */
+export type ServiceItemUpdateOneInlineInput = {
+  /** Connect existing ServiceItem document */
+  connect?: InputMaybe<ServiceItemWhereUniqueInput>;
+  /** Create and connect one ServiceItem document */
+  create?: InputMaybe<ServiceItemCreateInput>;
+  /** Delete currently connected ServiceItem document */
   delete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Disconnect currently connected Service document */
+  /** Disconnect currently connected ServiceItem document */
   disconnect?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Update single Service document */
-  update?: InputMaybe<ServiceUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single Service document */
-  upsert?: InputMaybe<ServiceUpsertWithNestedWhereUniqueInput>;
+  /** Update single ServiceItem document */
+  update?: InputMaybe<ServiceItemUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single ServiceItem document */
+  upsert?: InputMaybe<ServiceItemUpsertWithNestedWhereUniqueInput>;
 };
 
-export type ServiceUpdateWithNestedWhereUniqueInput = {
+export type ServiceItemUpdateWithNestedWhereUniqueInput = {
   /** Document to update */
-  data: ServiceUpdateInput;
+  data: ServiceItemUpdateInput;
   /** Unique document search */
-  where: ServiceWhereUniqueInput;
+  where: ServiceItemWhereUniqueInput;
 };
 
-export type ServiceUpsertInput = {
+export type ServiceItemUpsertInput = {
   /** Create document if it didn't exist */
-  create: ServiceCreateInput;
+  create: ServiceItemCreateInput;
   /** Update document if it exists */
-  update: ServiceUpdateInput;
+  update: ServiceItemUpdateInput;
 };
 
-export type ServiceUpsertWithNestedWhereUniqueInput = {
+export type ServiceItemUpsertWithNestedWhereUniqueInput = {
   /** Upsert data */
-  data: ServiceUpsertInput;
+  data: ServiceItemUpsertInput;
   /** Unique document search */
-  where: ServiceWhereUniqueInput;
+  where: ServiceItemWhereUniqueInput;
 };
 
 /** This contains a set of filters that can be used to compare values internally */
-export type ServiceWhereComparatorInput = {
+export type ServiceItemWhereComparatorInput = {
   /** This field can be used to request to check if the entry is outdated by internal comparison */
   outdated_to?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Identifies documents */
-export type ServiceWhereInput = {
+export type ServiceItemWhereInput = {
   /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<ServiceWhereInput>>;
+  AND?: InputMaybe<Array<ServiceItemWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<ServiceWhereInput>>;
+  NOT?: InputMaybe<Array<ServiceItemWhereInput>>;
   /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<ServiceWhereInput>>;
+  OR?: InputMaybe<Array<ServiceItemWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -9154,9 +9742,9 @@ export type ServiceWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
-  documentInStages_every?: InputMaybe<ServiceWhereStageInput>;
-  documentInStages_none?: InputMaybe<ServiceWhereStageInput>;
-  documentInStages_some?: InputMaybe<ServiceWhereStageInput>;
+  documentInStages_every?: InputMaybe<ServiceItemWhereStageInput>;
+  documentInStages_none?: InputMaybe<ServiceItemWhereStageInput>;
+  documentInStages_some?: InputMaybe<ServiceItemWhereStageInput>;
   id?: InputMaybe<Scalars['ID']['input']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']['input']>;
@@ -9233,17 +9821,252 @@ export type ServiceWhereInput = {
 };
 
 /** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
-export type ServiceWhereStageInput = {
+export type ServiceItemWhereStageInput = {
   /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<ServiceWhereStageInput>>;
+  AND?: InputMaybe<Array<ServiceItemWhereStageInput>>;
   /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<ServiceWhereStageInput>>;
+  NOT?: InputMaybe<Array<ServiceItemWhereStageInput>>;
   /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<ServiceWhereStageInput>>;
+  OR?: InputMaybe<Array<ServiceItemWhereStageInput>>;
   /** This field contains fields which can be set as true or false to specify an internal comparison */
-  compareWithParent?: InputMaybe<ServiceWhereComparatorInput>;
+  compareWithParent?: InputMaybe<ServiceItemWhereComparatorInput>;
   /** Specify the stage to compare with */
   stage?: InputMaybe<Stage>;
+};
+
+/** References ServiceItem record uniquely */
+export type ServiceItemWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+/** Identifies documents */
+export type ServiceManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ServiceWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ServiceWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ServiceWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  service_every?: InputMaybe<ServiceItemWhereInput>;
+  service_none?: InputMaybe<ServiceItemWhereInput>;
+  service_some?: InputMaybe<ServiceItemWhereInput>;
+};
+
+export enum ServiceOrderByInput {
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC'
+}
+
+export type ServiceParent = Page;
+
+export type ServiceParentConnectInput = {
+  Page?: InputMaybe<PageConnectInput>;
+};
+
+export type ServiceParentCreateInput = {
+  Page?: InputMaybe<PageCreateInput>;
+};
+
+export type ServiceParentCreateManyInlineInput = {
+  /** Connect multiple existing ServiceParent documents */
+  connect?: InputMaybe<Array<ServiceParentWhereUniqueInput>>;
+  /** Create and connect multiple existing ServiceParent documents */
+  create?: InputMaybe<Array<ServiceParentCreateInput>>;
+};
+
+export type ServiceParentCreateOneInlineInput = {
+  /** Connect one existing ServiceParent document */
+  connect?: InputMaybe<ServiceParentWhereUniqueInput>;
+  /** Create and connect one ServiceParent document */
+  create?: InputMaybe<ServiceParentCreateInput>;
+};
+
+export type ServiceParentUpdateInput = {
+  Page?: InputMaybe<PageUpdateInput>;
+};
+
+export type ServiceParentUpdateManyInlineInput = {
+  /** Connect multiple existing ServiceParent documents */
+  connect?: InputMaybe<Array<ServiceParentConnectInput>>;
+  /** Create and connect multiple ServiceParent documents */
+  create?: InputMaybe<Array<ServiceParentCreateInput>>;
+  /** Delete multiple ServiceParent documents */
+  delete?: InputMaybe<Array<ServiceParentWhereUniqueInput>>;
+  /** Disconnect multiple ServiceParent documents */
+  disconnect?: InputMaybe<Array<ServiceParentWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing ServiceParent documents */
+  set?: InputMaybe<Array<ServiceParentWhereUniqueInput>>;
+  /** Update multiple ServiceParent documents */
+  update?: InputMaybe<Array<ServiceParentUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple ServiceParent documents */
+  upsert?: InputMaybe<Array<ServiceParentUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type ServiceParentUpdateManyWithNestedWhereInput = {
+  Page?: InputMaybe<PageUpdateManyWithNestedWhereInput>;
+};
+
+export type ServiceParentUpdateOneInlineInput = {
+  /** Connect existing ServiceParent document */
+  connect?: InputMaybe<ServiceParentWhereUniqueInput>;
+  /** Create and connect one ServiceParent document */
+  create?: InputMaybe<ServiceParentCreateInput>;
+  /** Delete currently connected ServiceParent document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Disconnect currently connected ServiceParent document */
+  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single ServiceParent document */
+  update?: InputMaybe<ServiceParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single ServiceParent document */
+  upsert?: InputMaybe<ServiceParentUpsertWithNestedWhereUniqueInput>;
+};
+
+export type ServiceParentUpdateWithNestedWhereUniqueInput = {
+  Page?: InputMaybe<PageUpdateWithNestedWhereUniqueInput>;
+};
+
+export type ServiceParentUpsertWithNestedWhereUniqueInput = {
+  Page?: InputMaybe<PageUpsertWithNestedWhereUniqueInput>;
+};
+
+export type ServiceParentWhereInput = {
+  Page?: InputMaybe<PageWhereInput>;
+};
+
+export type ServiceParentWhereUniqueInput = {
+  Page?: InputMaybe<PageWhereUniqueInput>;
+};
+
+export type ServiceUpdateInput = {
+  service?: InputMaybe<ServiceItemUpdateManyInlineInput>;
+};
+
+export type ServiceUpdateManyInlineInput = {
+  /** Create and connect multiple Service component instances */
+  create?: InputMaybe<Array<ServiceCreateWithPositionInput>>;
+  /** Delete multiple Service documents */
+  delete?: InputMaybe<Array<ServiceWhereUniqueInput>>;
+  /** Update multiple Service component instances */
+  update?: InputMaybe<Array<ServiceUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple Service component instances */
+  upsert?: InputMaybe<Array<ServiceUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+export type ServiceUpdateManyInput = {
+  /** No fields in updateMany data input */
+  _?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ServiceUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: ServiceUpdateManyInput;
+  /** Document search */
+  where: ServiceWhereInput;
+};
+
+export type ServiceUpdateOneInlineInput = {
+  /** Create and connect one Service document */
+  create?: InputMaybe<ServiceCreateInput>;
+  /** Delete currently connected Service document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single Service document */
+  update?: InputMaybe<ServiceUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Service document */
+  upsert?: InputMaybe<ServiceUpsertWithNestedWhereUniqueInput>;
+};
+
+export type ServiceUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  data?: InputMaybe<ServiceUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: ServiceWhereUniqueInput;
+};
+
+export type ServiceUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: ServiceUpdateInput;
+  /** Unique document search */
+  where: ServiceWhereUniqueInput;
+};
+
+export type ServiceUpsertInput = {
+  /** Create document if it didn't exist */
+  create: ServiceCreateInput;
+  /** Update document if it exists */
+  update: ServiceUpdateInput;
+};
+
+export type ServiceUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  data?: InputMaybe<ServiceUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: ServiceWhereUniqueInput;
+};
+
+export type ServiceUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: ServiceUpsertInput;
+  /** Unique document search */
+  where: ServiceWhereUniqueInput;
+};
+
+/** Identifies documents */
+export type ServiceWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ServiceWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ServiceWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ServiceWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  service_every?: InputMaybe<ServiceItemWhereInput>;
+  service_none?: InputMaybe<ServiceItemWhereInput>;
+  service_some?: InputMaybe<ServiceItemWhereInput>;
 };
 
 /** References Service record uniquely */
@@ -9763,6 +10586,25 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
+export type NavigationFirstQueryVariables = Exact<{
+  componentFirst?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type NavigationFirstQuery = { __typename?: 'Query', navigations: Array<{ __typename: 'Navigation', id: string, createdAt: any, updatedAt: any, navId?: string | null, createdBy?: { __typename?: 'User', id: string, picture?: string | null, name: string, kind: UserKind, isActive: boolean } | null, updatedBy?: { __typename?: 'User', id: string, picture?: string | null, name: string, kind: UserKind, isActive: boolean } | null, link: Array<{ __typename: 'Link', stage: Stage, id: string, displayText?: string | null, externalUrl?: string | null, page?: { __typename: 'Author', id: string, Author_name: string } | { __typename: 'Page', id: string, Page_title: string } | { __typename: 'Post', id: string, Post_title: string } | { __typename: 'Project', id: string, Project_title: string } | { __typename: 'ServiceItem', id: string, ServiceItem_title: string } | null }> }> };
+
+export type AllPagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllPagesQuery = { __typename?: 'Query', pages: Array<{ __typename: 'Page', id: string, slug: string, title: string }> };
+
+export type SinglePageQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type SinglePageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', title: string, seoOverride?: { __typename: 'SeoOverride', stage: Stage, id: string, title?: string | null, description?: string | null, image?: { __typename: 'Asset', id: string, fileName: string, size?: number | null, mimeType?: string | null, url: string, width?: number | null, height?: number | null, handle: string } | null } | null, content: { __typename?: 'RichText', html: string, raw: any }, serviceItems: Array<{ __typename: 'Service', stage: Stage, id: string, service: Array<{ __typename: 'ServiceItem', id: string, title: string }> }>, banner?: { __typename: 'BannerComponent', id: string, buttonLabel?: string | null, buttonLink: string, title?: { __typename?: 'RichText', raw: any } | null, description: { __typename?: 'RichText', raw: any } } | null, accordion: Array<{ __typename: 'AccordionComponent', stage: Stage, id: string, heading: string, description: { __typename?: 'RichText', raw: any } }> } | null };
+
 export type PostByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
@@ -9790,33 +10632,36 @@ export type ProjectQuery = { __typename?: 'Query', project?: { __typename?: 'Pro
 export type ServiceEntriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ServiceEntriesQuery = { __typename?: 'Query', serviceEntries: Array<{ __typename?: 'ServiceEntry', id: string, title: string, richTextTitle: { __typename?: 'RichText', raw: any }, description: { __typename?: 'RichText', raw: any }, service: Array<{ __typename?: 'Service', title: string, description?: { __typename?: 'RichText', raw: any } | null }> }> };
+export type ServiceEntriesQuery = { __typename?: 'Query', serviceEntries: Array<{ __typename?: 'ServiceEntry', id: string, title: string, richTextTitle: { __typename?: 'RichText', raw: any }, description: { __typename?: 'RichText', raw: any }, service: Array<{ __typename?: 'ServiceItem', title: string, description?: { __typename?: 'RichText', raw: any } | null }> }> };
 
 export type ServiceEntryQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
-export type ServiceEntryQuery = { __typename?: 'Query', serviceEntry?: { __typename?: 'ServiceEntry', id: string, title: string, richTextTitle: { __typename?: 'RichText', raw: any }, description: { __typename?: 'RichText', raw: any }, service: Array<{ __typename?: 'Service', title: string, description?: { __typename?: 'RichText', raw: any } | null }> } | null };
+export type ServiceEntryQuery = { __typename?: 'Query', serviceEntry?: { __typename?: 'ServiceEntry', id: string, title: string, richTextTitle: { __typename?: 'RichText', raw: any }, description: { __typename?: 'RichText', raw: any }, service: Array<{ __typename?: 'ServiceItem', title: string, description?: { __typename?: 'RichText', raw: any } | null }> } | null };
 
-export type ServicesQueryVariables = Exact<{ [key: string]: never; }>;
+export type ServiceItemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ServicesQuery = { __typename?: 'Query', services: Array<{ __typename?: 'Service', id: string, title: string, description?: { __typename: 'RichText', text: string } | null }> };
+export type ServiceItemsQuery = { __typename?: 'Query', serviceItems: Array<{ __typename?: 'ServiceItem', id: string, title: string, description?: { __typename: 'RichText', text: string } | null }> };
 
-export type ServiceQueryVariables = Exact<{
+export type ServiceItemQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
-export type ServiceQuery = { __typename?: 'Query', service?: { __typename: 'Service', title: string, description?: { __typename?: 'RichText', text: string } | null } | null };
+export type ServiceItemQuery = { __typename?: 'Query', serviceItem?: { __typename: 'ServiceItem', title: string, description?: { __typename?: 'RichText', text: string } | null } | null };
 
 
+export const NavigationFirstDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"navigationFirst"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"componentFirst"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"navigations"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdBy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"picture"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"kind"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}}]}},{"kind":"Field","name":{"kind":"Name","value":"updatedBy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"picture"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"kind"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}}]}},{"kind":"Field","name":{"kind":"Name","value":"navId"}},{"kind":"Field","name":{"kind":"Name","value":"link"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"componentFirst"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"stage"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"displayText"}},{"kind":"Field","name":{"kind":"Name","value":"page"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ServiceItem"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"ServiceItem_title"},"name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Page"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"Page_title"},"name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Author"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"Author_name"},"name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Post"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"Post_title"},"name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Project"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"Project_title"},"name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"externalUrl"}}]}}]}}]}}]} as unknown as DocumentNode<NavigationFirstQuery, NavigationFirstQueryVariables>;
+export const AllPagesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AllPages"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pages"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}}]} as unknown as DocumentNode<AllPagesQuery, AllPagesQueryVariables>;
+export const SinglePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SinglePage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"seoOverride"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"stage"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}},{"kind":"Field","name":{"kind":"Name","value":"size"}},{"kind":"Field","name":{"kind":"Name","value":"mimeType"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}},{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}},{"kind":"Field","name":{"kind":"Name","value":"serviceItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Service"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"stage"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"service"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"banner"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"BannerComponent"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"buttonLabel"}},{"kind":"Field","name":{"kind":"Name","value":"buttonLink"}},{"kind":"Field","name":{"kind":"Name","value":"title"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"accordion"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"AccordionComponent"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"stage"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"heading"}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<SinglePageQuery, SinglePageQueryVariables>;
 export const PostByIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"PostById"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"post"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"json"}}]}},{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Author"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"remoteTypeName"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"remoteId"},"name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"picture"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"publishedBy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"picture"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}}]}},{"kind":"Field","name":{"kind":"Name","value":"coverImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}}]}}]}}]}}]} as unknown as DocumentNode<PostByIdQuery, PostByIdQueryVariables>;
 export const PostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Posts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"posts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"json"}}]}},{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Author"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"remoteTypeName"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"remoteId"},"name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"picture"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"publishedBy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"picture"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}}]}},{"kind":"Field","name":{"kind":"Name","value":"coverImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}}]}}]}}]}}]} as unknown as DocumentNode<PostsQuery, PostsQueryVariables>;
 export const ProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Projects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"projects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Author"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"remoteTypeName"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"remoteId"},"name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"picture"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"json"}}]}},{"kind":"Field","name":{"kind":"Name","value":"coverImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"mimeType"}}]}},{"kind":"Field","name":{"kind":"Name","value":"images"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"mimeType"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videos"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"mimeType"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]} as unknown as DocumentNode<ProjectsQuery, ProjectsQueryVariables>;
 export const ProjectDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Project"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"project"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"category"}},{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Author"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"remoteTypeName"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"remoteId"},"name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"picture"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"json"}}]}},{"kind":"Field","name":{"kind":"Name","value":"coverImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"mimeType"}}]}},{"kind":"Field","name":{"kind":"Name","value":"images"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"mimeType"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videos"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"mimeType"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]} as unknown as DocumentNode<ProjectQuery, ProjectQueryVariables>;
 export const ServiceEntriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ServiceEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"serviceEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"richTextTitle"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}},{"kind":"Field","name":{"kind":"Name","value":"service"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}}]}}]}}]}}]} as unknown as DocumentNode<ServiceEntriesQuery, ServiceEntriesQueryVariables>;
 export const ServiceEntryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ServiceEntry"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"serviceEntry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"richTextTitle"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}},{"kind":"Field","name":{"kind":"Name","value":"service"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}}]}}]}}]}}]} as unknown as DocumentNode<ServiceEntryQuery, ServiceEntryQueryVariables>;
-export const ServicesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"services"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"services"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}}]}}]} as unknown as DocumentNode<ServicesQuery, ServicesQueryVariables>;
-export const ServiceDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"service"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"service"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}}]} as unknown as DocumentNode<ServiceQuery, ServiceQueryVariables>;
+export const ServiceItemsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"serviceItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"serviceItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}}]}}]} as unknown as DocumentNode<ServiceItemsQuery, ServiceItemsQueryVariables>;
+export const ServiceItemDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"serviceItem"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"serviceItem"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}}]} as unknown as DocumentNode<ServiceItemQuery, ServiceItemQueryVariables>;

@@ -1,10 +1,8 @@
-import AppLayout from '@/components/layout';
-import { useCallback } from 'react';
+import AppLayout from '@/components/layout/layout';
+import { useMemo } from 'react';
 
 export function Layout() {
-  const cacheLayout = useCallback(() => {
+  return useMemo(() => {
     return <AppLayout />;
   }, []);
-
-  return cacheLayout();
 }

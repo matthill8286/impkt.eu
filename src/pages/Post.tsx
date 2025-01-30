@@ -1,17 +1,15 @@
-import React, { Fragment } from 'react';
+import { FC, Fragment, ReactElement } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { postByIdQuery } from '@/queries/post';
-import { RichText } from '@graphcms/rich-text-react-renderer';
+import CustomRichText from '@/components/custom-rich-text';
 
-const Post: React.FC = (): React.ReactElement | string => {
+const Post: FC = (): ReactElement | string => {
   const params = useParams();
 
   const { loading, error, data } = useQuery(postByIdQuery, {
     variables: { id: params.id! },
   });
-
-  console.log(params);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
@@ -68,7 +66,7 @@ const Post: React.FC = (): React.ReactElement | string => {
               </div>
             </div>
             <div className="col-lg-8">
-              <RichText
+              <CustomRichText
                 content={data?.post?.content.json}
                 renderers={{
                   h1: ({ children }) => (
@@ -77,50 +75,6 @@ const Post: React.FC = (): React.ReactElement | string => {
                   bold: ({ children }) => <strong>{children}</strong>,
                 }}
               />
-
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="impkt-image-frame impkt-horizontal impkt-up impkt-mb-30">
-                    <img src="/img/blog/4.jpg" alt="Publication cover" />
-                  </div>
-                </div>
-                <div className="col-lg-6">
-                  <div className="impkt-image-frame impkt-horizontal impkt-up impkt-mb-60">
-                    <img src="/img/blog/7.jpg" alt="Publication cover" />
-                  </div>
-                </div>
-              </div>
-
-              <p className="impkt-up impkt-mb-60">
-                Remember that creativity is at the core of graphic design.
-                Embrace your creativity, experiment with different ideas, and
-                think outside the box to create unique and impktful designs.
-                Don&#39;t be afraid to take risks and push the boundaries of
-                traditional design. Steve Jobs once said:
-              </p>
-
-              <blockquote className="impkt-up impkt-mb-60">
-                &#34;Design is not just what it looks like and feels like.
-                Design is how it works.&#34; So go ahead, unleash your
-                creativity, and embark on your path to becoming a graphic
-                designer!
-              </blockquote>
-
-              <p className="impkt-up impkt-mb-30">
-                In addition to the aforementioned steps, other important aspects
-                of becoming a graphic designer include networking with industry
-                professionals, staying updated on design trends and
-                technologies, and continuously learning and improving your
-                skills.
-              </p>
-
-              <p className="impkt-up impkt-mb-30">
-                Becoming a graphic designer is an exciting journey that requires
-                dedication, hard work, and a genuine passion for design. By
-                following these 10 simple steps, you&#39;ll be well on your way
-                to establishing yourself as a skilled graphic designer and
-                opening doors to a rewarding and fulfilling career.
-              </p>
             </div>
           </div>
         </div>
@@ -133,10 +87,7 @@ const Post: React.FC = (): React.ReactElement | string => {
             </div>
             <div className="col-lg-6 impkt-mb-30">
               <div className="impkt-adaptive-right impkt-up">
-                <a
-                  href="blog-inner.html"
-                  className="impkt-link impkt-dark impkt-arrow-place"
-                >
+                <a href="blog-inner.html" className="impkt-link impkt-dark ">
                   <span>View all</span>
                 </a>
               </div>
@@ -170,7 +121,7 @@ const Post: React.FC = (): React.ReactElement | string => {
                     nihil ullam totam ea voluptas quibusdam repudiandae id ut at
                     iure! Totam, a!
                   </p>
-                  <div className="impkt-link impkt-dark impkt-arrow-place impkt-up">
+                  <div className="impkt-link impkt-dark  impkt-up">
                     <span>Read more</span>
                   </div>
                 </div>
@@ -203,7 +154,7 @@ const Post: React.FC = (): React.ReactElement | string => {
                     nihil ullam totam ea voluptas quibusdam repudiandae id ut at
                     iure! Totam, a!
                   </p>
-                  <div className="impkt-link impkt-dark impkt-arrow-place impkt-up">
+                  <div className="impkt-link impkt-dark  impkt-up">
                     <span>Read more</span>
                   </div>
                 </div>

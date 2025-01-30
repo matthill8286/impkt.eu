@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC, ReactElement } from 'react';
 
-const NotFound: React.FC = (): React.ReactElement => {
+const NotFound: FC = (): ReactElement => {
   return (
     <div>
       <p>Not Found Page</p>

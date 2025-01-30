@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import { FC, Fragment, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-import Breadcrumbs from '@/components/breadcrumbs';
-import Banner from '@/components/banner';
+import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs';
+import Banner from '@/components/layout/banner';
 
-const Team: React.FC = (): React.ReactElement => {
+const Team: FC = (): ReactElement => {
   return (
     <Fragment>
       <div className="impkt-inner-banner">
@@ -26,10 +26,7 @@ const Team: React.FC = (): React.ReactElement => {
               Meet <span className="impkt-thin">Our</span>
               <br /> Creative <span className="impkt-thin">Team</span>
             </h1>
-            <a
-              href="#team"
-              className="impkt-link impkt-dark impkt-arrow-place impkt-down-arrow"
-            >
+            <a href="#team" className="impkt-link impkt-dark  impkt-down-arrow">
               <span>Our team</span>
             </a>
           </div>
@@ -106,7 +103,19 @@ const Team: React.FC = (): React.ReactElement => {
           </div>
         </div>
       </section>
-      <Banner description="Looking to make your mark? We&#39;ll help you turn <br /> your project into a success story." />
+
+      <Banner
+        description="Looking to make your mark? We&#39;ll help you turn <br /> your project into a success story."
+        buttonText="Contact Us"
+        buttonLink="/contact"
+        richTextTitle="
+          <h2 className='impkt-up impkt-mb-60'>
+            Ready to bring your <span className='impkt-thin'>ideas to</span>
+            life? <br /> We&#39;re
+            <span className='impkt-thin'>here to help</span>
+          </h2>
+        "
+      />
     </Fragment>
   );
 };

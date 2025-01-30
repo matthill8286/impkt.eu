@@ -1,13 +1,5 @@
 import { Link } from 'react-router-dom';
-
-type Crumb = {
-  to: string;
-  label: string;
-};
-
-interface BreadcrumbsProps {
-  crumbs: Crumb[];
-}
+import { BreadcrumbsProps } from '@/components/breadcrumbs/breadcrumbs.interface';
 
 export default function Breadcrumbs({ crumbs }: BreadcrumbsProps) {
   return (

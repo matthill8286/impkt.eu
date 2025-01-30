@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 
 interface AccordionProps {
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
+const Accordion: FC<AccordionProps> = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => setIsOpen((prev) => !prev);

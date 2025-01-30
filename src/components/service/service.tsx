@@ -1,34 +1,25 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { RichText } from '@/__generated__/graphql';
 import CustomRichText from '@/components/custom-rich-text';
-
-export type Service = {
-  id: string;
-  name: string;
-  description: string;
-};
-
-interface ServiceProps {
-  id: string;
-  title: string;
-  description: RichText;
-  services?: Service[];
-}
+import { ServiceProps } from '@/components/service/service.interface';
 
 export const ServiceComponent: FC<ServiceProps> = ({
   id,
   title,
   description,
   services = [],
+  readMoreLabel = 'Read more',
 }) => {
   return (
     <div className="col-md-6 col-lg-6">
-      <div className="impkt-service-card-lg impkt-more impkt-accent-cursor">
+      <div className="impkt-service-card-lg impkt-more impkt-accent-cursor impkt-mb-30">
         <Link to={`/services/${id}`}>
           <h4 className="impkt-muted impkt-up impkt-mb-30">{title}</h4>
         </Link>
-        <CustomRichText content={description.raw} />
+        <CustomRichText
+          classNameExtension="impkt-light-soft"
+          content={description}
+        />
         <ul className="impkt-service-list impkt-light impkt-mb-30">
           {services.map((service) => (
             <li key={service.id} className="impkt-up">
@@ -36,9 +27,9 @@ export const ServiceComponent: FC<ServiceProps> = ({
             </li>
           ))}
         </ul>
-        <div className="impkt-link impkt-accent impkt-arrow-place impkt-up">
+        <div className="impkt-link impkt-accent  impkt-up">
           <Link to={`/services/${id}`}>
-            <span>Read more</span>
+            <span>{readMoreLabel}</span>
           </Link>
         </div>
       </div>
